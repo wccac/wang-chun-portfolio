@@ -1,0 +1,16 @@
+/* The original arrow polygon begins at 0 0. Keep this nib fixed while hovering. */
+body.panda-film-page .cursor {
+  --panda-cursor-scale: 1;
+  transform-origin: 0 0;
+  transform: scale(var(--panda-cursor-scale));
+  transition: transform .15s ease-out, filter .15s ease-out;
+}
+body.panda-film-page .cursor.on { --panda-cursor-scale: 1.06; }
+/* A filled strip meets the arrow across its body; the arrow masks the root. */
+body.panda-film-page .cursor { z-index: 182; }
+svg.gold-trail .gold-body-ribbon { fill: url(#panda-ribbon-gold); stroke: none; filter: drop-shadow(0 0 .8px rgb(236 185 68 / .3)); }
+svg.gold-trail .gold-body-sheen { fill: none; stroke: url(#panda-ribbon-light); stroke-linecap: butt; }
+@media (prefers-reduced-motion: reduce) {
+  body.panda-film-page .cursor { transition: none; }
+  body.panda-film-page .cursor.on { --panda-cursor-scale: 1; }
+}

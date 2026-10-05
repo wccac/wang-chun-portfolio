@@ -1,0 +1,126 @@
+/*
+ * Tactile feedback for the existing Bitter Melon artwork and controls.
+ * Load after bitter-book.css. Individual scale/translate deliberately leave
+ * artwork transforms, texture, opacity and reader image replacement untouched.
+ * CSS transitions reverse from their current value when the pointer leaves;
+ * there are no queued animations or perpetual loops.
+ */
+:root {
+  --bm-touch-spring: cubic-bezier(.2, .8, .2, 1);
+  --bm-touch-duration: 520ms;
+}
+
+@supports (transition-timing-function: linear(0, 1)) {
+  :root {
+    --bm-touch-spring: linear(
+      0, .13 6%, .37 13%, .66 23%, .88 34%, 1.025 46%,
+      1.06 56%, 1.035 68%, 1.004 83%, 1
+    );
+  }
+}
+
+/* Never select the approved cover, decorative ribbon, logo or ending backdrop. */
+:is(.bm-figure > img, .bm-reader-stage > .bm-reader-image, .art-trigger > img) {
+  scale: 1;
+  translate: 0 0;
+  transform-origin: 50% 50%;
+  transition:
+    scale var(--bm-touch-duration) var(--bm-touch-spring),
+    translate var(--bm-touch-duration) var(--bm-touch-spring);
+}
+
+/* Glass artwork openers and the final return capsule have their own material. */
+:is(.bm-story, .bm-reader-section, .bm-dialog, .bm-footer, .bm-sources, .inside, .topbar, .poster-type)
+  :is(a, button):not(.bm-open, .liquid-glass, .art-trigger),
+.project-ending[data-project="bitter"] .ending-reread {
+  scale: 1;
+  translate: 0 0;
+  transform-origin: 50% 50%;
+  transition:
+    scale 460ms var(--bm-touch-spring),
+    translate 460ms var(--bm-touch-spring),
+    opacity 180ms ease-out,
+    color 180ms ease-out,
+    background-color 180ms ease-out,
+    border-color 180ms ease-out,
+    box-shadow 180ms ease-out;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bm-jump a, .bm-footer a, .bm-sources a {
+  display: inline-block;
+}
+
+/* A mouse gets a small elastic lift. Hover does not wash out the printed art. */
+@media (hover: hover) and (pointer: fine) {
+  :is(.bm-figure, .bm-reader-stage):hover > img,
+  .art-trigger:hover > img {
+    scale: 1.009;
+    translate: 0 -2px;
+  }
+
+  .bm-flat-fold:hover > img {
+    scale: 1.006;
+    translate: 0 -1px;
+  }
+
+  :is(.bm-story, .bm-reader-section, .bm-dialog, .bm-footer, .bm-sources, .inside, .topbar, .poster-type)
+    :is(a, button):not(.bm-open, .liquid-glass, .art-trigger, :disabled, [aria-current="true"]),
+  .project-ending[data-project="bitter"] .ending-reread {
+    opacity: .82;
+  }
+
+  :is(.bm-story, .bm-reader-section, .bm-dialog, .bm-footer, .bm-sources, .inside, .topbar, .poster-type)
+    :is(a, button):not(.bm-open, .liquid-glass, .art-trigger, :disabled):is(:hover, :focus-visible),
+  .project-ending[data-project="bitter"] .ending-reread:is(:hover, :focus-visible) {
+    scale: 1.025 .99;
+    translate: 0 -1px;
+    opacity: 1;
+  }
+
+  :is(.bm-story, .bm-reader-section) .bm-orbit:not(.bm-open, .liquid-glass, :disabled):hover {
+    scale: 1.07 .985;
+    translate: 0 -1px;
+  }
+}
+
+/* Press feedback also works on touch, without a sticky emulated hover state. */
+@media (prefers-reduced-motion: no-preference) {
+  :is(.bm-story, .bm-reader-section, .bm-dialog, .bm-footer, .bm-sources, .inside, .topbar, .poster-type)
+    :is(a, button):not(.bm-open, .liquid-glass, .art-trigger, :disabled):active,
+  .project-ending[data-project="bitter"] .ending-reread:active {
+    scale: .975 1.015;
+    translate: 0 1px;
+    opacity: 1;
+    transition-duration: 110ms;
+    transition-timing-function: ease-out;
+  }
+
+  .art-trigger:active > img {
+    scale: .994;
+    translate: 0 0;
+    transition-duration: 110ms;
+    transition-timing-function: ease-out;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  :is(.bm-figure, .bm-reader-stage):active > img {
+    scale: .994;
+    translate: 0 0;
+    transition-duration: 140ms;
+    transition-timing-function: ease-out;
+  }
+}
+
+/* Enlarged original artwork stays still so panning and close inspection are exact. */
+@media (prefers-reduced-motion: reduce) {
+  :is(.bm-figure > img, .bm-reader-stage > .bm-reader-image, .art-trigger > img),
+  :is(.bm-story, .bm-reader-section, .bm-dialog, .bm-footer, .bm-sources, .inside, .topbar, .poster-type)
+    :is(a, button):not(.bm-open, .liquid-glass, .art-trigger),
+  .project-ending[data-project="bitter"] .ending-reread {
+    scale: 1 !important;
+    translate: 0 0 !important;
+    transition-duration: .01ms !important;
+  }
+}

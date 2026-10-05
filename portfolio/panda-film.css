@@ -1,0 +1,72 @@
+/* A normal-flow film entrance, followed by the complete original portfolio. */
+@font-face{font-family:"Desktop WenKai Supplement";src:url("../world-design/assets/fonts/LXGWWenKai-Panda.supplement.woff2") format("woff2");font-style:normal;font-weight:500;font-display:swap}
+.panda-film-page .world{position:relative;width:100%;height:auto;min-height:0;overflow:visible}
+.panda-film-page>.site-signature{display:none}
+.panda-cover{position:relative;isolation:isolate;height:100svh;min-height:600px;overflow:hidden;background:#0b2822}
+.panda-cover-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.panda-cover-shade{position:absolute;inset:0;background:linear-gradient(90deg,#05191270,transparent 58%),linear-gradient(0deg,#0b2822,transparent 24%);pointer-events:none}
+.panda-cover-enter{position:absolute!important;bottom:32px;right:6vw;z-index:4}
+.panda-film-words{position:absolute;z-index:3;left:5.1%;top:16.1%;width:590px;height:658px;transform-origin:left top;pointer-events:none;opacity:1;transition:opacity .85s ease}
+.panda-film-words .eyebrow{margin:0;position:absolute;left:12px;top:0;color:#e3c587;font-family:"Desktop WenKai","Desktop WenKai Supplement",serif;font-size:15px;letter-spacing:.33em}
+.panda-film-words .world-title{position:absolute;left:0;top:40px;width:530px;height:595px;margin:0;font-family:var(--calligraphy);font-synthesis:none;font-weight:400;line-height:1;letter-spacing:0;text-shadow:0 3px 25px #02120cad}
+.panda-film-words .world-title span{position:absolute;display:block}
+.panda-film-words .wan{left:0;top:0;font-size:179px;color:#e3c587;transform:rotate(-5deg)}
+.panda-film-words .xiang{left:104px;top:127px;font-size:188px;transform:rotate(3deg)}
+.panda-film-words .sheng{left:249px;top:269px;font-size:167px;transform:rotate(-4deg)}
+.panda-film-words .hua{left:335px;top:393px;font-size:192px;transform:rotate(3deg)}
+.panda-film-words .side-inscription{position:absolute;left:550px;top:64px;margin:0;writing-mode:vertical-rl;font-family:"Desktop WenKai","Desktop WenKai Supplement",serif;font-size:17px;line-height:1.65;letter-spacing:.2em;color:#e4dfc6;text-shadow:0 2px 12px #071b14}
+.panda-film-words .side-inscription::before{content:"";display:block;width:1px;height:56px;margin:0 auto 20px;background:#dec07f99}
+
+/* A quiet, half-screen player follows the three existing chapter entrances. */
+.panda-film-section{padding:0 6vw clamp(55px,7vw,105px);background:transparent}
+.panda-film-heading{width:min(100%,88.89svh);margin:0 auto 18px;display:flex;align-items:baseline;justify-content:space-between;gap:20px;color:#d5ddcf}
+.panda-film-heading h2{font:400 27px/1.4 var(--calligraphy);letter-spacing:.12em;margin:0}
+.panda-film-heading>span{font:9px/1.4 ui-sans-serif,system-ui,sans-serif;letter-spacing:.16em;color:#97aa9d}
+.panda-film-hero{position:relative;isolation:isolate;width:min(100%,88.89svh);aspect-ratio:16/9;margin-inline:auto;overflow:hidden;background:#102b23;border-radius:3px;box-shadow:0 20px 65px -30px #011a1580}
+.panda-film-poster,.panda-film-video{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center;border:0}
+.panda-film-poster{z-index:0}
+.panda-film-video{z-index:1;opacity:0;object-fit:contain;background:#102b23;transition:opacity .55s ease}
+.panda-film-hero.has-film-frame .panda-film-video{opacity:1}
+.panda-film-shade{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(0deg,#071c1670,transparent 28%),#0b282218;opacity:1;transition:opacity .45s ease}
+.panda-film-hero[data-film-state="playing"] .panda-film-shade{opacity:.42}
+.panda-film-play-position{position:absolute;inset:0;display:grid;place-items:center;z-index:4;pointer-events:none;opacity:1;transition:opacity .2s ease}
+.panda-film-play{display:grid;place-items:center;width:64px;height:64px;padding:0;border:1px solid #ecf5e869;border-radius:50%;background:#173e2933;color:#f2f4e9;pointer-events:auto;cursor:pointer;touch-action:manipulation}
+.panda-film-play svg{width:30px;height:30px;fill:currentColor;stroke:none;margin-left:3px}
+.panda-film-play-position[hidden]{display:none}
+.panda-film-controls{position:absolute;z-index:4;inset:auto 22px 18px;height:44px;pointer-events:none}
+.panda-film-controls button{position:absolute;right:0;display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid #e7eede55;border-radius:50%;background:#102b234d;color:#eef3e7;pointer-events:auto;cursor:pointer;touch-action:manipulation}
+.panda-film-controls button[hidden]{display:none}
+.panda-film-controls svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round}
+.panda-film-controls button:focus-visible,.panda-film-play:focus-visible{outline:2px solid #f2e7c9;outline-offset:5px}
+.panda-film-toggle .play-symbol,.panda-film-toggle .replay-symbol{display:none}
+.panda-film-hero:not([data-film-state="playing"]) .pause-symbol{display:none}
+.panda-film-hero[data-film-state="blocked"] .play-symbol,.panda-film-hero[data-film-state="paused"] .play-symbol{display:block}
+.panda-film-hero[data-film-state="ended"] .replay-symbol,.panda-film-hero[data-film-state="unavailable"] .replay-symbol{display:block}
+.panda-film-progress{position:absolute;bottom:0;left:0;right:0;height:2px;z-index:5;background:#f5eed714;pointer-events:none}
+.panda-film-progress span{display:block;width:100%;height:100%;background:#f1e5c6a6;transform:scaleX(0);transform-origin:left;transition:transform .25s linear}
+.panda-film-time{position:absolute;left:0;bottom:12px;font:10px/1.5 ui-sans-serif,system-ui,sans-serif;font-variant-numeric:tabular-nums;letter-spacing:.14em;color:#fff8e4bf;text-shadow:0 1px 9px #062319}
+.panda-film-message{position:absolute;left:15%;right:15%;bottom:74px;z-index:4;font-size:12px;color:#eef3e7;text-align:center;text-shadow:0 1px 8px #052015}
+.panda-film-message:empty{display:none}
+.panda-film-hero[data-film-state="loading"] .panda-film-play{opacity:.65}
+@media(max-height:850px) and (min-width:761px){.panda-film-words{transform:scale(.82);top:12%}}
+@media(min-width:1800px){.panda-film-words{left:7%;top:19%}}
+@media(max-width:1100px) and (min-width:761px){.panda-film-words{transform:scale(.76);left:4.4%;top:18%}}
+@media(max-width:760px){
+ .panda-cover{min-height:600px}
+ .panda-cover-art{object-position:63% center}
+ .panda-film-words{left:24px;top:110px;transform:scale(.5)}
+ .panda-cover-enter{bottom:max(30px,env(safe-area-inset-bottom));right:7vw}
+ .panda-film-section{padding:0 6vw 52px}
+ .panda-film-heading h2{font-size:24px}
+ .panda-film-heading>span{font-size:8px;letter-spacing:.08em}
+ .panda-film-controls{inset:auto 14px 12px}
+ .panda-film-play{width:54px;height:54px}
+ .panda-film-time{font-size:9px;bottom:10px}
+ .panda-film-message{bottom:59px;font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){.panda-film-video,.panda-film-shade,.panda-film-play-position,.panda-film-progress span{transition:none}}
+/* Make the primary play affordance legible against fine embroidery details. */
+body.panda-film-page .panda-film-play .panda-glass-surface{background:rgb(7 28 22 / .48);box-shadow:0 6px 22px #02120c40,inset 1px 1px 1px #f0f6e7b3,inset -1px -1px 1px #d5e5cd66}
+body.panda-film-page .panda-film-play .panda-glass-lens{backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+body.panda-film-page .panda-film-play>svg{position:relative;z-index:1;filter:drop-shadow(0 1px 2px #03180fc0)}
+body.panda-film-page .panda-film-play .panda-glass-surface{z-index:0}

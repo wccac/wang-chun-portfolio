@@ -1,0 +1,21 @@
+/* Shared motion/layout layer. Glass surfaces live in panda-experience.css. */
+html.panda-enhanced{scroll-behavior:auto!important;scroll-snap-type:none!important}
+.panda-enhanced .panda-film-page .reveal{opacity:1;transform:none;transition:none}
+.panda-film-page .dark-veil{display:none}
+.panda-film-page{background-color:#0b2822}
+.panda-film-page::before{opacity:.055}
+.panda-film-page .chapter{max-width:1440px;margin-inline:auto}
+.panda-film-page .myth-card,.panda-film-page .atelier-work{isolation:isolate}
+.panda-film-page .panda-finale{scroll-margin-top:0}
+.panda-film-page footer{position:relative;z-index:1;background:#102b23;color:#c7d3c5a6;font-size:10px;letter-spacing:.09em}
+html.panda-leaving body{opacity:0;transition:opacity .3s ease}
+html:has(body.panda-film-page){background:#071a15;overflow-x:clip}
+body.panda-film-page .panda-finale-notes>div{grid-template-columns:5.2em minmax(0,1fr)}
+body.panda-film-page .panda-finale-notes dt{white-space:nowrap}
+body.panda-film-page .panda-finale-panel{width:min(920px,100%)}
+body.panda-film-page .panda-finale-art img{height:clamp(260px,32vw,385px)}
+@media(max-width:760px){
+ .panda-film-page footer{padding:22px 24px;gap:10px;flex-wrap:wrap}
+ body.panda-film-page .panda-finale-art img{height:230px}
+ body.panda-film-page .panda-finale-notes{text-align:left}
+}

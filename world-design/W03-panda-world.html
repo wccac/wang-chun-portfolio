@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="王淳的东方视觉作品集"><title>王淳｜绣境异兽</title>
+<style>
+    :root{--ink:#0a2019;--ink2:#123128;--paper:#f3eee1;--gold:#d4a858;--rose:#b75148;--mist:#aebbb1}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ink);color:var(--paper);font-family:"Noto Serif SC","Songti SC",STSong,serif;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}button{font:inherit}a{color:inherit;text-decoration:none}.cursor{width:15px;height:15px;border:1px solid var(--gold);border-radius:99px;position:fixed;z-index:99;pointer-events:none;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s}.cursor.on{width:54px;height:54px;background:rgba(212,168,88,.22)}.ripple{width:7px;height:7px;border:1px solid var(--gold);border-radius:50%;position:fixed;z-index:98;pointer-events:none;animation:ripple .7s ease-out forwards}@keyframes ripple{to{width:92px;height:92px;opacity:0;transform:translate(-43px,-43px)}}
+    .nav{height:76px;position:absolute;z-index:5;top:0;left:0;width:100%;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;letter-spacing:.1em}.brand{font-size:18px;font-weight:600}.brand small{font:10px Arial,sans-serif;color:var(--gold);margin-left:8px}.links{display:flex;gap:27px;font:11px Arial,sans-serif;letter-spacing:.17em}.links a:hover{color:var(--gold)}
+    .hero{height:100svh;min-height:680px;display:flex;flex-direction:column;justify-content:flex-end;padding:0 5vw 8vh;position:relative;isolation:isolate;overflow:hidden}.hero-bg{position:absolute;inset:-4%;z-index:-2;background:url('../portfolio/panda-original/assets/hero.png') center 38%/cover;animation:slowIn 1.2s ease-out both;transition:transform .16s linear}.hero:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(4,18,13,.93),rgba(4,18,13,.46) 49%,rgba(4,18,13,.12)),linear-gradient(0deg,rgba(5,18,13,.95),transparent 55%)}@keyframes slowIn{from{transform:scale(1.05);filter:blur(6px)}to{transform:none;filter:none}}.kicker{color:var(--gold);font:11px Arial,sans-serif;letter-spacing:.25em}.hero h1{font-size:clamp(55px,9vw,136px);font-weight:500;letter-spacing:.1em;line-height:.91;margin:16px 0 34px}.hero h1 span{display:inline-block;overflow:hidden;vertical-align:top;animation:stitch 1.5s cubic-bezier(.2,.8,.2,1) both}.hero h1 span:nth-child(2){animation-delay:.32s}.hero h1 em{font-style:normal;color:var(--gold)}@keyframes stitch{from{clip-path:inset(0 100% 0 0);filter:blur(7px)}to{clip-path:inset(0);filter:none}}.hero-foot{display:flex;justify-content:space-between;align-items:end}.hero-foot p{max-width:350px;line-height:1.9;font-size:14px;margin:0;color:#e6e2d7}.scroll{font:10px Arial,sans-serif;color:#dfc889;letter-spacing:.2em;animation:float 2s ease-in-out infinite}@keyframes float{50%{transform:translateY(7px)}}
+    .chapter{padding:110px 5vw 44px;display:grid;grid-template-columns:.8fr 1.2fr;gap:10vw;align-items:end}.chapter h2{font-size:clamp(39px,5vw,70px);line-height:1.08;font-weight:500;letter-spacing:.07em;margin:12px 0 0}.chapter p{line-height:1.95;color:#c0c9bf;font-size:15px;margin:0;max-width:520px}.chapter .line{display:flex;gap:18px;margin-top:24px;font:10px Arial,sans-serif;letter-spacing:.14em;color:var(--gold)}.chapter .line span{border-bottom:1px solid rgba(212,168,88,.55);padding-bottom:6px}
+    .gallery{padding:0 5vw 110px;position:relative}.rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(280px,42vw);gap:18px;overflow:hidden;scroll-behavior:smooth;padding-bottom:13px;cursor:grab;user-select:none}.rail.dragging{cursor:grabbing;scroll-behavior:auto}.work{height:min(67vh,650px);min-height:420px;position:relative;overflow:hidden;background:#183a2d;cursor:pointer}.work img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.78,.2,1),filter .35s}.work[data-pos="panda"] img{object-position:center}.work:hover img{transform:scale(1.07);filter:brightness(.66) saturate(1.12)}.lens{position:absolute;width:138px;height:138px;display:none;border:2px solid #f2e4be;border-radius:50%;z-index:3;pointer-events:none;background-repeat:no-repeat;box-shadow:0 9px 25px rgba(0,0,0,.35)}.work.magnify:hover .lens{display:block}.work-info{position:absolute;inset:auto 0 0;padding:28px;background:linear-gradient(transparent,rgba(3,15,11,.94));transform:translateY(36px);transition:.35s}.work:hover .work-info{transform:none}.type{font:10px Arial,sans-serif;color:var(--gold);letter-spacing:.16em}.work h3{font-size:28px;font-weight:500;margin:8px 0 0}.rail-nav{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}.rail-nav button{width:50px;height:42px;border:1px solid #6a7d70;background:transparent;color:var(--paper);font-size:20px;cursor:pointer;transition:.2s}.rail-nav button:hover{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+    .motion{padding:0 5vw 110px}.film{height:min(79vh,760px);min-height:500px;position:relative;overflow:hidden;background:#163a2e}.film video{width:100%;height:100%;object-fit:cover;filter:brightness(.72) saturate(.95)}.film-copy{position:absolute;inset:auto 0 0;padding:46px;background:linear-gradient(transparent,rgba(2,13,9,.94))}.film-copy h2{font-size:clamp(33px,4.4vw,64px);font-weight:500;margin:9px 0}.sound{position:absolute;right:28px;top:28px;z-index:2;border:1px solid #e4dcc8;background:rgba(5,17,12,.28);color:white;padding:10px 14px;font:11px Arial,sans-serif;letter-spacing:.12em;cursor:pointer}.sound:hover{background:var(--gold);color:var(--ink)}.timeline{position:absolute;z-index:2;left:46px;right:46px;bottom:23px;display:flex;justify-content:space-between;gap:10px}.timeline button{flex:1;border:0;border-top:1px solid rgba(255,255,255,.55);padding:8px 0 0;background:transparent;color:#e9e5d8;text-align:left;font:10px Arial,sans-serif;letter-spacing:.1em;cursor:pointer}.timeline button:hover,.timeline button.active{border-color:var(--gold);color:var(--gold)}.gate{padding:0 5vw 110px}.gate-art{height:min(65vh,620px);min-height:400px;position:relative;overflow:hidden;background:#112920}.gate-art img{width:100%;height:100%;object-fit:cover}.gate-art:after{content:"山海启卷";position:absolute;z-index:2;left:8%;bottom:12%;font-size:clamp(36px,5vw,75px);letter-spacing:.13em;color:#f3e9cb;text-shadow:0 3px 16px rgba(0,0,0,.5)}.gate-art span{position:absolute;left:8%;bottom:8%;z-index:2;color:#e1ca8d;font:10px Arial,sans-serif;letter-spacing:.22em}.gate-art:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(5,18,12,.32),transparent 55%,rgba(3,13,9,.35))}
+    .myth{background:#d4a858;color:var(--ink);padding-bottom:110px}.myth .chapter{padding-bottom:44px}.myth .chapter p{color:#4a3a1d}.myth .kicker,.myth .line{color:#685020!important}.myth .line span{border-color:#80662e}.myth-grid{padding:0 5vw;display:grid;grid-template-columns:1fr 1fr;gap:18px}.myth-card{min-height:560px;overflow:hidden;position:relative;background:#214438;cursor:pointer}.myth-card:after{content:"✦ 〰 ✦";position:absolute;inset:18% 0 auto;text-align:center;color:#fff4ce;font-size:42px;letter-spacing:.35em;opacity:0;transform:translateY(17px);transition:.5s;animation:cloud 2.2s ease-in-out infinite}.myth-card:hover:after{opacity:.78;transform:none}@keyframes cloud{50%{letter-spacing:.48em;transform:translateX(10px)}}.myth-card img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1)}.myth-card:hover img{transform:scale(1.06) rotate(1deg)}.myth-card .work-info{transform:none}.myth-card:hover .work-info{padding-bottom:36px}.closing{padding:0 5vw 110px;background:#d4a858}.closing-art{height:min(70vh,700px);min-height:430px;position:relative;overflow:hidden;background:#102a20}.closing-art img{width:100%;height:100%;object-fit:cover}.closing-art:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,18,12,.66),transparent 65%)}.closing-copy{position:absolute;z-index:1;left:7%;bottom:11%;max-width:430px}.closing-copy h2{font-size:clamp(35px,5vw,70px);font-weight:500;line-height:1.1;margin:10px 0}.closing-copy p{font-size:14px;line-height:1.9;margin:0;color:#e6e2d7}.journey{padding:100px 5vw;background:#122d24;position:relative;overflow:hidden}.journey:before{content:"";position:absolute;left:12%;right:12%;top:50%;border-top:1px dashed rgba(212,168,88,.75);transform:rotate(-3deg)}.journey:after{content:"";position:absolute;right:-4%;top:-18%;width:440px;height:440px;background:url('../portfolio/panda-original/assets/generated/05-embroidered-ornament-sheet.png') center/cover;opacity:.16;mix-blend-mode:screen;transform:rotate(10deg)}.journey>*{position:relative;z-index:1}.journey h2{font-size:clamp(34px,4vw,54px);font-weight:500;margin:9px 0 52px}.map{display:grid;grid-template-columns:repeat(3,1fr);gap:9vw;position:relative}.map button{border:0;background:transparent;color:var(--paper);text-align:left;cursor:pointer;padding:0}.map i{display:block;width:19px;height:19px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 7px rgba(212,168,88,.13);margin-bottom:18px;animation:pulse 2s infinite}.map button:nth-child(2) i{animation-delay:.6s}.map button:nth-child(3) i{animation-delay:1.2s}@keyframes pulse{50%{box-shadow:0 0 0 14px rgba(212,168,88,.02)}}.map b{display:block;font-size:24px;font-weight:500;margin-bottom:8px}.map span{color:#b8c4bb;font-size:13px;line-height:1.7}.summary{padding:115px 5vw;display:grid;grid-template-columns:.82fr 1.18fr;gap:10vw;background:#0a1b15}.summary h2{font-size:clamp(42px,5.6vw,80px);font-weight:500;line-height:1.08;margin:10px 0}.summary p{font-size:18px;line-height:1.95;margin:0}.tags{margin-top:30px;display:flex;flex-wrap:wrap;gap:9px}.tags span{font:11px Arial,sans-serif;letter-spacing:.1em;border:1px solid #4e6559;padding:10px 14px;color:#bfcbc1}footer{padding:40px 5vw;background:#05130e;color:#8e9d91;display:flex;justify-content:space-between;font:11px Arial,sans-serif;letter-spacing:.1em}
+    .modal{display:none;position:fixed;z-index:60;inset:0;padding:20px;place-items:center;background:rgba(2,12,8,.92);backdrop-filter:blur(10px)}.modal.open{display:grid}.modal-inner{width:min(1050px,100%);max-height:92vh;display:grid;grid-template-columns:1.45fr .55fr;background:#eee8dd;color:var(--ink);position:relative;animation:up .35s ease-out}.modal img{width:100%;height:min(78vh,740px);object-fit:contain;background:#133025}.modal-copy{padding:48px 34px;transform-origin:left center}.modal-copy.flip{animation:flip .55s cubic-bezier(.2,.8,.2,1)}@keyframes flip{50%{transform:rotateY(-35deg);opacity:.15}100%{transform:none;opacity:1}}.modal-copy h3{font-size:34px;font-weight:500;margin:17px 0}.modal-copy p{font-size:14px;line-height:1.9}.page-control{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #c8bb9c;margin-top:25px;padding-top:17px;font:10px Arial,sans-serif;letter-spacing:.12em}.page-control button{border:1px solid var(--ink);background:transparent;width:35px;height:30px;cursor:pointer}.close{position:absolute;right:12px;top:7px;z-index:2;border:0;background:none;color:var(--ink);font-size:30px;cursor:pointer}@keyframes up{from{opacity:0;transform:translateY(19px)}to{opacity:1;transform:none}}.reveal{opacity:0;transform:translateY(30px);transition:.75s ease}.reveal.show{opacity:1;transform:none}
+    @media(max-width:720px){.cursor{display:none}.nav{height:58px}.links{display:none}.hero{min-height:620px;padding-bottom:6vh}.hero-foot{display:block}.scroll{display:none}.chapter{grid-template-columns:1fr;gap:15px;padding:70px 6vw 30px}.gallery,.motion{padding-left:6vw;padding-right:6vw;padding-bottom:72px}.rail{grid-auto-columns:82vw}.work{height:55vh;min-height:400px}.work-info{transform:none;padding:17px}.work h3{font-size:22px}.lens{display:none!important}.film{height:62vh;min-height:430px}.film-copy{padding:28px}.sound{right:16px;top:16px}.timeline{left:18px;right:18px;bottom:13px}.timeline button{font-size:8px}.myth{padding-bottom:70px}.myth-grid{padding:0 6vw;grid-template-columns:1fr;gap:12px}.myth-card{min-height:430px}.journey{padding:70px 6vw}.journey:before{display:none}.map{grid-template-columns:1fr;gap:28px}.summary{grid-template-columns:1fr;padding:76px 6vw;gap:16px}.modal-inner{grid-template-columns:1fr}.modal img{height:52vh}.modal-copy{padding:25px}.modal-copy h3{font-size:28px}footer{display:block;line-height:2.1}}
+  </style>
+  <style>
+    :root{
+      --ink:#071914;
+      --ink2:#102b23;
+      --paper:#f7f0df;
+      --gold:#e2bd68;
+      --gold-deep:#9e6f25;
+      --jade:#163c31;
+      --display:"STKaiti","KaiTi","FZKai-Z03","Songti SC",serif;
+      --serif:"Songti SC","STSong","Noto Serif SC",serif;
+    }
+    body{
+      background:
+        radial-gradient(ellipse at 18% 8%,rgba(75,126,100,.2),transparent 32%),
+        radial-gradient(ellipse at 82% 32%,rgba(205,170,92,.08),transparent 28%),
+        linear-gradient(115deg,#06130f 0%,#12372b 18%,#081e18 35%,#15392e 54%,#071a14 75%,#102e25 100%);
+      background-attachment:fixed;
+      font-family:var(--serif);
+    }
+    body:before{
+      opacity:.48;
+      background:
+        linear-gradient(104deg,transparent 0 13%,rgba(255,255,255,.045) 18%,transparent 24% 41%,rgba(229,196,124,.055) 47%,transparent 55% 73%,rgba(255,255,255,.035) 78%,transparent 84%),
+        repeating-linear-gradient(90deg,rgba(255,255,255,.012) 0 1px,transparent 1px 5px);
+      background-size:160% 100%,auto;
+      mix-blend-mode:screen;
+      animation:silkDrift 13s ease-in-out infinite alternate;
+    }
+    body:after{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      pointer-events:none;
+      background:linear-gradient(165deg,rgba(255,255,255,.025),transparent 36%,rgba(0,0,0,.18) 67%,rgba(226,189,104,.035));
+    }
+    @keyframes silkDrift{to{background-position:25% 0,0 0}}
+    .nav{
+      position:fixed;
+      height:auto;
+      top:22px;
+      left:3vw;
+      width:94vw;
+      padding:0;
+      z-index:40;
+      pointer-events:none;
+    }
+    .brand,.links{pointer-events:auto}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      padding:12px 17px;
+      border:1px solid rgba(226,189,104,.36);
+      background:linear-gradient(135deg,rgba(4,23,17,.86),rgba(23,57,46,.7));
+      box-shadow:0 14px 40px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.08);
+      backdrop-filter:blur(16px);
+      font-family:var(--display);
+      font-size:22px;
+      letter-spacing:.12em;
+    }
+    .brand:before{
+      content:"绣";
+      display:grid;
+      place-items:center;
+      width:27px;
+      height:27px;
+      color:#f6e6bb;
+      background:#9f392f;
+      border:1px solid #d78d76;
+      font-size:15px;
+      line-height:1;
+      box-shadow:0 0 0 3px rgba(159,57,47,.18);
+    }
+    .brand small{font-size:9px;letter-spacing:.18em}
+    .links{
+      gap:5px;
+      padding:7px;
+      border:1px solid rgba(226,189,104,.4);
+      border-radius:2px;
+      background:linear-gradient(135deg,rgba(3,20,15,.88),rgba(21,57,45,.76));
+      box-shadow:0 16px 42px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.08);
+      backdrop-filter:blur(18px) saturate(1.25);
+      font:13px var(--serif);
+      letter-spacing:.12em;
+    }
+    .links a{
+      position:relative;
+      padding:12px 17px;
+      color:#f2ead6;
+      transition:.28s ease;
+    }
+    .links a:before{
+      content:"";
+      position:absolute;
+      left:16px;
+      right:16px;
+      bottom:7px;
+      height:1px;
+      background:var(--gold);
+      transform:scaleX(0);
+      transition:.25s;
+    }
+    .links a:hover{
+      color:#fff4cf;
+      background:rgba(226,189,104,.13);
+      transform:translateY(-1px);
+    }
+    .links a:hover:before{transform:scaleX(1)}
+    .hero{
+      min-height:720px;
+      padding:0 6vw 8vh;
+      background:#061711;
+    }
+    .hero-video{
+      position:absolute;
+      inset:-3%;
+      z-index:-3;
+      width:106%;
+      height:106%;
+      object-fit:cover;
+      object-position:center;
+      filter:brightness(.56) saturate(.78) sepia(.16) contrast(1.08);
+      transform:scale(1.025);
+      transition:transform .18s linear;
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:-2;
+      pointer-events:none;
+      background:
+        linear-gradient(105deg,rgba(255,255,255,.05) 0%,transparent 18%,rgba(224,188,103,.07) 38%,transparent 56%),
+        repeating-linear-gradient(98deg,rgba(255,255,255,.018) 0 1px,transparent 1px 6px);
+      mix-blend-mode:screen;
+      animation:heroSilk 8s ease-in-out infinite alternate;
+    }
+    .hero:after{
+      z-index:-1;
+      background:
+        linear-gradient(90deg,rgba(2,15,11,.94),rgba(4,21,15,.62) 48%,rgba(3,15,11,.2)),
+        linear-gradient(0deg,rgba(3,15,11,.97),transparent 64%),
+        radial-gradient(circle at 72% 38%,transparent 0 16%,rgba(3,14,10,.26) 55%);
+    }
+    @keyframes heroSilk{to{background-position:18% 0,10px 0}}
+    .hero-title{
+      position:relative;
+      z-index:1;
+      width:min(1050px,86vw);
+      padding-left:25px;
+      border-left:1px solid rgba(226,189,104,.72);
+    }
+    .hero-title:before{
+      content:"";
+      position:absolute;
+      left:-5px;
+      top:0;
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      background:var(--gold);
+      box-shadow:0 0 22px rgba(226,189,104,.9);
+    }
+    .hero h1{
+      font-family:var(--display);
+      font-size:clamp(58px,8.2vw,126px);
+      font-weight:700;
+      letter-spacing:.08em;
+      line-height:.9;
+      margin:18px 0 32px;
+      text-shadow:0 5px 28px rgba(0,0,0,.62),1px 1px 0 rgba(255,255,255,.12);
+    }
+    .hero h1 span:first-child{
+      color:#f8f0dc;
+      -webkit-text-stroke:.35px rgba(255,248,222,.5);
+    }
+    .hero h1 span:last-child{
+      font-size:.84em;
+      letter-spacing:.16em;
+    }
+    .hero h1 em{
+      position:relative;
+      color:transparent;
+      background:linear-gradient(180deg,#fff4bd 0%,#e6b956 46%,#93631d 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-stroke:.5px #f5d990;
+      filter:drop-shadow(0 6px 10px rgba(0,0,0,.32));
+    }
+    .hero h1 em:after{
+      content:"";
+      position:absolute;
+      left:-5%;
+      right:-1%;
+      bottom:.03em;
+      height:.08em;
+      background:linear-gradient(90deg,transparent,#e1b65c 14% 84%,transparent);
+      transform:rotate(-2deg);
+      opacity:.85;
+    }
+    .hero-seal{
+      position:absolute;
+      right:-58px;
+      top:28px;
+      width:42px;
+      padding:9px 7px;
+      border:1px solid rgba(255,213,190,.75);
+      background:rgba(146,48,42,.8);
+      color:#ffe8d7;
+      font:15px/1.35 var(--display);
+      letter-spacing:.12em;
+      writing-mode:vertical-rl;
+      box-shadow:0 8px 25px rgba(0,0,0,.35);
+    }
+    .hero .kicker{font-size:12px;color:#f0d58c}
+    .hero-foot p{font-size:15px;max-width:430px;color:#f0eadc}
+    .hero-sound{
+      position:absolute;
+      right:6vw;
+      bottom:8vh;
+      border:1px solid rgba(235,210,151,.65);
+      background:rgba(4,22,16,.55);
+      color:#f6ecd4;
+      padding:12px 17px;
+      cursor:pointer;
+      backdrop-filter:blur(12px);
+      font:12px var(--serif);
+      letter-spacing:.14em;
+      transition:.25s;
+    }
+    .hero-sound:hover{background:var(--gold);color:var(--ink)}
+    .chapter h2,.film-copy h2,.gate-art:after,.closing-copy h2,.journey h2,.summary h2,
+    .work h3,.myth-card h3,.modal-copy h3{
+      font-family:var(--display);
+      font-weight:700;
+    }
+    #silk,.gate,.journey,.summary{
+      background:
+        linear-gradient(105deg,rgba(255,255,255,.022),transparent 18% 37%,rgba(226,189,104,.028) 48%,transparent 62%),
+        linear-gradient(122deg,#081c16,#12372b 36%,#081e18 62%,#102e25);
+      background-size:160% 100%,100% 100%;
+    }
+    .myth{
+      background:
+        linear-gradient(108deg,rgba(255,255,255,.13),transparent 17% 39%,rgba(91,54,9,.13) 48%,transparent 62%),
+        linear-gradient(125deg,#d4aa50,#e7c875 34%,#c69539 65%,#e1bc67);
+    }
+    .lens-toolbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom:16px;
+      padding:14px 16px;
+      border:1px solid rgba(226,189,104,.28);
+      background:rgba(4,24,18,.44);
+      backdrop-filter:blur(12px);
+    }
+    .lens-toolbar p{margin:0;color:#bfc9c0;font-size:12px;line-height:1.6}
+    .lens-toggle{
+      flex:none;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      border:1px solid rgba(226,189,104,.7);
+      background:transparent;
+      color:#f5ead1;
+      padding:11px 15px;
+      cursor:pointer;
+      transition:.25s;
+      font-size:13px;
+      letter-spacing:.06em;
+    }
+    .lens-toggle i{
+      width:20px;
+      height:20px;
+      display:grid;
+      place-items:center;
+      border:1px solid currentColor;
+      border-radius:50%;
+      font-style:normal;
+      line-height:1;
+    }
+    .lens-toggle:hover,.lens-toggle.is-on{background:var(--gold);color:var(--ink)}
+    .lens-toggle.is-on i{box-shadow:0 0 0 4px rgba(10,32,25,.15)}
+    .work.magnify:hover .lens{display:none}
+    .gallery.lens-enabled .work.magnify:hover .lens{display:block}
+    .gallery.lens-enabled .work.magnify{cursor:zoom-in}
+    .motion{display:none}
+    @media(max-width:900px){
+      .nav{top:12px;left:4vw;width:92vw;align-items:flex-start}
+      .brand{font-size:18px;padding:10px 12px}
+      .brand small{display:none}
+      .links{max-width:67vw;overflow-x:auto;white-space:nowrap;padding:5px}
+      .links a{padding:10px 12px;font-size:12px}
+      .hero-seal{right:-48px}
+    }
+    @media(max-width:720px){
+      .nav{display:block}
+      .brand{width:max-content}
+      .links{
+        display:flex;
+        position:fixed;
+        left:4vw;
+        right:4vw;
+        bottom:14px;
+        top:auto;
+        max-width:none;
+        justify-content:space-between;
+        z-index:45;
+        border-radius:3px;
+      }
+      .links a{padding:10px 8px;font-size:11px}
+      .hero{padding:0 7vw 12vh;min-height:680px}
+      .hero-title{padding-left:16px;width:88vw}
+      .hero h1{font-size:clamp(47px,15vw,72px);line-height:.98}
+      .hero h1 span:last-child{font-size:.72em;letter-spacing:.11em}
+      .hero-seal{right:1px;top:-52px;width:34px;font-size:12px;writing-mode:horizontal-tb;padding:6px}
+      .hero-sound{right:7vw;bottom:5vh}
+      .hero-foot p{max-width:68vw;font-size:13px}
+      .lens-toolbar{align-items:flex-start;flex-direction:column}
+      .lens-toggle{width:100%;justify-content:center}
+    }
+    @media(hover:none){.lens-toolbar{display:none}}
+    @media(prefers-reduced-motion:reduce){
+      body:before,.hero:before{animation:none}
+      .hero-video{transition:none}
+    }
+    /* DarkVeil-inspired unified background and typography refresh */
+    :root{--calligraphy:"STXingkai","FZShuTi","STKaiti","KaiTi",serif}
+    body{background:#061711;isolation:isolate}
+    .dark-veil{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.88}
+    body>main,body>footer,body>.modal{position:relative;z-index:1}
+    .nav{display:flex;align-items:center;justify-content:space-between}
+    .brand,.links{border:0!important;box-shadow:none!important;backdrop-filter:none!important}
+    .brand{padding:10px 0;background:linear-gradient(90deg,rgba(3,19,14,.78),transparent);font-family:var(--calligraphy);font-size:25px}
+    .brand:before{background:transparent;border:0;color:#e6bd69;box-shadow:none;width:auto;height:auto;font-family:var(--calligraphy);font-size:22px}
+    .links{padding:5px 0 5px 34px;gap:15px;background:linear-gradient(90deg,transparent,rgba(5,29,21,.5) 35%,rgba(19,64,49,.12));font-family:var(--calligraphy);font-size:15px}
+    .links a{padding:10px 8px;color:rgba(247,239,216,.83);background:transparent!important}
+    .links a:before{left:8px;right:8px;bottom:5px;height:2px;background:linear-gradient(90deg,transparent,#e2bd68,transparent)}
+    .links a:hover{color:#f6d889;transform:translateY(-2px)}
+    .hero h1{font-family:var(--calligraphy);font-weight:400;letter-spacing:.13em;line-height:.86;max-width:8.4em}
+    .hero h1 span:first-child{font-size:1em}.hero h1 span:last-child{font-size:.88em;letter-spacing:.2em}
+    .chapter h2,.film-copy h2,.gate-art:after,.closing-copy h2,.journey h2,.summary h2,.work h3,.myth-card h3,.modal-copy h3{font-family:var(--calligraphy);font-weight:400;letter-spacing:.13em}
+    main{background:linear-gradient(180deg,rgba(4,20,15,.22),rgba(3,20,15,.4))}
+    #silk,.gate,.myth,.closing,.journey,.summary{background:transparent!important;color:var(--paper)}
+    .myth .chapter p,.myth .kicker,.myth .line{color:#dcc48a!important}.myth .line span{border-color:rgba(226,189,104,.58)}
+    .closing-copy p,.journey .map span,.summary p{color:#d8ddd3}
+    .gate-art{background:#0a241b url('../portfolio/panda-original/assets/generated/03-shanhai-scroll-transition.png') center/cover}
+    .gate-art img{display:block;min-height:100%;opacity:1}
+    .lingjing-feature{position:relative;overflow:hidden;padding:0 5vw 120px;background:transparent}
+    .lingjing-feature:before{content:"";position:absolute;left:5vw;right:5vw;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(226,189,104,.62),transparent)}
+    .lingjing-frame{position:relative;z-index:1;min-height:min(72vh,720px);display:grid;grid-template-columns:minmax(0,1.32fr) minmax(250px,.68fr);overflow:hidden;background:rgba(4,25,18,.42);box-shadow:0 28px 70px rgba(0,0,0,.27)}
+    .lingjing-frame img{width:100%;height:100%;min-height:500px;object-fit:cover}
+    .lingjing-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(30px,5vw,76px);background:linear-gradient(145deg,rgba(6,28,21,.95),rgba(17,58,44,.66));border-left:1px solid rgba(226,189,104,.26)}
+    .lingjing-copy h2{margin:12px 0 22px;font:400 clamp(38px,5vw,72px)/1.03 var(--calligraphy);letter-spacing:.15em;color:#f5e7c6}
+    .lingjing-copy p{margin:0;color:#d5ddd2;font-size:15px;line-height:2;letter-spacing:.05em}
+    .lingjing-copy .line{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;font:11px var(--serif);letter-spacing:.13em;color:#e2bd68}
+    .lingjing-copy .line span{padding-bottom:6px;border-bottom:1px solid rgba(226,189,104,.55)}
+    @media(max-width:720px){
+      .links{padding-left:10px;background:linear-gradient(90deg,rgba(3,19,14,.12),rgba(8,37,27,.72),rgba(3,19,14,.12))}
+      .hero h1{font-size:clamp(52px,16vw,76px);max-width:6.8em;letter-spacing:.09em}
+      .lingjing-feature{padding:0 6vw 78px}.lingjing-frame{grid-template-columns:1fr}.lingjing-frame img{min-height:340px}.lingjing-copy{border-left:0;border-top:1px solid rgba(226,189,104,.26)}
+    }
+    .cursor{width:16px;height:16px;border:0;background:radial-gradient(circle at 35% 30%,#fff5bb 0 9%,#f0cc68 22%,#9b6419 62%,#3f2508 100%);box-shadow:0 0 0 1px rgba(255,234,157,.86),0 0 15px rgba(230,181,73,.76),inset -3px -3px 5px rgba(58,30,4,.55);mix-blend-mode:screen}
+    .cursor:before{content:"";position:absolute;inset:-8px;border:1px solid rgba(238,193,89,.8);border-left-color:transparent;border-bottom-color:transparent;border-radius:50%;transform:rotate(var(--cursor-angle,0deg));transition:transform .18s ease}
+    .cursor:after{content:"";position:absolute;width:25px;height:1px;left:-21px;top:50%;background:linear-gradient(90deg,transparent,rgba(246,211,121,.88),#fff1b2);transform:translateY(-50%);filter:drop-shadow(0 0 3px #e0a943)}
+    .cursor.on{width:34px;height:34px;background:radial-gradient(circle,rgba(255,242,181,.22),rgba(185,125,31,.1) 48%,transparent 72%);box-shadow:0 0 0 1px rgba(241,205,111,.75),0 0 23px rgba(223,168,54,.48)}
+    .gold-burst{position:fixed;z-index:100;pointer-events:none;width:1px;height:1px;mix-blend-mode:screen}
+    .gold-burst b{position:absolute;left:0;top:0;width:var(--w,8px);height:var(--h,3px);border-radius:1px;background:linear-gradient(110deg,#7b4910,#f4c75d 48%,#fff4bb);box-shadow:0 0 7px rgba(235,181,63,.75);transform:rotate(var(--angle)) translateX(0) rotate(18deg);animation:goldShard .72s cubic-bezier(.13,.67,.25,1) forwards}
+    .gold-burst i{position:absolute;left:-22px;top:-1px;width:44px;height:2px;background:linear-gradient(90deg,transparent,#f7d16b,transparent);transform:rotate(var(--stroke-angle));animation:goldStroke .48s ease-out forwards}
+    @keyframes goldShard{to{transform:rotate(var(--angle)) translateX(var(--distance)) rotate(var(--spin));opacity:0;filter:blur(.7px)}}
+    @keyframes goldStroke{to{transform:rotate(var(--stroke-angle)) scaleX(2.1);opacity:0}}
+    @media(hover:hover) and (pointer:fine){body,body *{cursor:none!important}}
+    .hero:after{background:linear-gradient(90deg,rgba(4,23,17,.92),rgba(7,35,26,.62) 50%,rgba(5,26,19,.27)),linear-gradient(0deg,rgba(4,23,17,.96),transparent 65%),radial-gradient(circle at 72% 38%,transparent 0 16%,rgba(4,23,17,.22) 56%)}
+    .hero-title{width:min(1120px,88vw);border-left-color:rgba(226,189,104,.5)}
+    .hero h1{max-width:none;font-size:clamp(54px,7.2vw,112px);letter-spacing:.055em;line-height:.92}
+    .hero h1 span{overflow:visible!important;letter-spacing:inherit!important}
+    .hero h1 span:last-child{letter-spacing:.12em!important}
+    .hero-seal{display:none}
+    .cursor{width:23px;height:31px;border-radius:0;background:linear-gradient(135deg,#fff7c7 0%,#e6b54c 43%,#9a5f16 72%,#4c2b05 100%);clip-path:polygon(0 0,0 100%,25% 76%,42% 100%,55% 93%,37% 69%,77% 69%);box-shadow:none;filter:drop-shadow(0 0 2px #fff0a5) drop-shadow(2px 3px 3px rgba(41,23,2,.72));mix-blend-mode:normal;transition:transform .18s ease,filter .18s ease}
+    .cursor:before{display:none}.cursor:after{width:7px;height:7px;left:3px;top:3px;background:radial-gradient(circle,#fffde6,rgba(255,244,174,.18) 68%,transparent 70%);transform:none;filter:none}
+    .cursor.on{width:23px;height:31px;border-radius:0;background:linear-gradient(135deg,#fff9d1 0%,#f0c55d 43%,#a56818 72%,#4c2b05 100%);box-shadow:none;transform:translate(-50%,-50%) scale(1.16);filter:drop-shadow(0 0 7px rgba(248,209,99,.86)) drop-shadow(2px 3px 3px rgba(41,23,2,.72))}
+    .gold-trail{position:fixed;z-index:98;left:0;top:0;width:0;height:2px;pointer-events:none;transform-origin:left center;background:linear-gradient(90deg,rgba(183,116,22,0),rgba(221,164,51,.28) 22%,rgba(255,226,132,.9) 73%,rgba(255,248,205,.98));box-shadow:0 0 5px rgba(242,191,77,.8);mix-blend-mode:screen;opacity:0;transition:opacity .12s linear}
+    .lens-mode .gold-trail{opacity:0!important}
+    .hero-video{opacity:.58;filter:brightness(.42) saturate(.52) sepia(.18) hue-rotate(8deg) contrast(1.03)}
+    .hero:before{background:linear-gradient(115deg,rgba(27,81,62,.26),transparent 38%,rgba(202,163,76,.07) 66%,rgba(5,28,20,.3)),repeating-linear-gradient(98deg,rgba(255,255,255,.015) 0 1px,transparent 1px 6px)}
+    .hero:after{background:linear-gradient(90deg,rgba(4,25,18,.96),rgba(7,41,30,.78) 50%,rgba(4,25,18,.68)),linear-gradient(0deg,rgba(4,25,18,.98),rgba(4,25,18,.32) 68%),radial-gradient(ellipse at 76% 34%,rgba(20,83,61,.18),transparent 54%)}
+    .cursor,.cursor.on{width:15px;height:21px;background:linear-gradient(135deg,#fff7ce 0%,#e4b449 43%,#9a5d14 72%,#4b2a05 100%);filter:drop-shadow(0 0 3px rgba(255,226,127,.8)) drop-shadow(1px 2px 2px rgba(31,17,2,.8));transform:translate(-50%,-50%) scale(1);transition:filter .16s ease,transform .16s ease}
+    .cursor.on{transform:translate(-50%,-50%) scale(1.06);filter:drop-shadow(0 0 7px rgba(255,220,111,.95)) drop-shadow(1px 2px 2px rgba(31,17,2,.8))}
+    .gold-trail{z-index:160;height:3px;background:linear-gradient(90deg,rgba(183,116,22,0),rgba(226,161,43,.55) 18%,rgba(255,218,105,.98) 68%,#fff7cc);box-shadow:0 0 9px rgba(246,190,62,.98);mix-blend-mode:normal;transition:opacity .06s linear}
+    .gold-burst{z-index:180;mix-blend-mode:normal}.gold-burst b{box-shadow:0 0 12px rgba(255,202,73,.98),0 0 2px #fff7ce}.gold-burst i{height:3px;background:linear-gradient(90deg,transparent,#f4be45,#fff4bd,#f4be45,transparent);box-shadow:0 0 10px rgba(250,198,67,.9)}
+    .hero-video{opacity:.9;filter:brightness(.72) saturate(.72) sepia(.12) hue-rotate(5deg) contrast(1.02)}
+    .hero:after{background:linear-gradient(90deg,rgba(4,25,18,.78),rgba(7,41,30,.46) 50%,rgba(4,25,18,.35)),linear-gradient(0deg,rgba(4,25,18,.84),rgba(4,25,18,.08) 70%),radial-gradient(ellipse at 76% 34%,rgba(20,83,61,.12),transparent 57%)}
+    .touch-art{position:relative;isolation:isolate;overflow:hidden;transition:transform .5s cubic-bezier(.2,.78,.2,1),box-shadow .5s cubic-bezier(.2,.78,.2,1)}
+    .touch-art:hover{transform:translateY(-5px);box-shadow:0 24px 50px rgba(0,0,0,.34),0 0 0 1px rgba(255,225,134,.95),0 0 18px rgba(236,181,67,.82),0 0 46px rgba(182,116,25,.36)}
+    .touch-art>img{transition:transform .75s cubic-bezier(.2,.78,.2,1),filter .5s ease}
+    .touch-art:hover>img{transform:scale(1.055);filter:brightness(1.07) saturate(1.08)}
+    .summary h2{white-space:normal;font-size:clamp(34px,4.45vw,68px);letter-spacing:.08em}
+    @media(max-width:720px){.summary h2{font-size:clamp(32px,10vw,48px);letter-spacing:.04em}}
+    .modal{z-index:170;padding:clamp(18px,4vw,58px);background:rgba(2,13,9,.54);backdrop-filter:blur(24px) saturate(.72);cursor:zoom-out}
+    .modal-inner{display:block;width:min(1180px,92vw);max-height:88svh;background:rgba(5,25,18,.72);box-shadow:0 36px 90px rgba(0,0,0,.56),0 0 0 1px rgba(226,189,104,.32);cursor:default;animation:artFocus .38s cubic-bezier(.18,.85,.24,1)}
+    .modal img{display:block;width:100%;height:min(82svh,820px);object-fit:contain;background:rgba(3,19,14,.72);filter:none}
+    .modal-caption{position:absolute;left:0;right:0;bottom:0;margin:0;padding:36px 28px 18px;background:linear-gradient(transparent,rgba(2,13,9,.84));color:#f6ebcf;text-align:center;font:400 clamp(18px,2vw,28px)/1.2 var(--calligraphy);letter-spacing:.12em;pointer-events:none}
+    .modal .close{right:12px;top:10px;width:37px;height:37px;border:1px solid rgba(247,230,177,.48);border-radius:50%;background:rgba(4,22,16,.54);color:#f7e2a3;font-size:28px;line-height:30px;transition:transform .2s ease,background .2s ease}
+    .modal .close:hover{background:rgba(226,189,104,.22);transform:rotate(90deg)}
+    @keyframes artFocus{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+    @media(max-width:720px){.modal{padding:18px}.modal-inner{width:100%;max-height:86svh}.modal img{height:76svh}.modal-caption{padding:30px 15px 15px;font-size:20px}}
+    .brand:before{display:none}
+  </style>
+  <link rel="preload" href="../portfolio/panda-original/assets/fonts/MaShanZheng-Beast.subset.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../portfolio/panda-original/assets/fonts/LongCang-Desktop.subset.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../portfolio/panda-original/assets/site-refinements.css?v=20260928-2">
+  <script src="../portfolio/panda-original/assets/site-refinements.js?v=20260928-1" defer></script>
+  <script src="../portfolio/panda-original/assets/gold-cursor.js?v=20261004-ribbon" defer></script>
+  <link rel="stylesheet" href="../portfolio/panda-original/assets/desktop-refinements.css?v=20261002-taohua-1">
+  <script src="../portfolio/panda-original/assets/desktop-interactions.js?v=20261005-review" defer></script>
+  <link rel="stylesheet" href="../portfolio/panda-original/assets/portfolio-compat.css">
+  <script src="../portfolio/panda-original/assets/portfolio-compat.js?v=20261005-review" defer></script>
+<link rel="stylesheet" href="../portfolio/panda-film.css?v=20261004-refine2">
+<link rel="stylesheet" href="vendor/lenis/lenis.css">
+<link rel="stylesheet" href="../portfolio/panda-experience.css?v=20261004-refine2">
+<link rel="stylesheet" href="../portfolio/panda-scroll.css?v=20261004-refine2">
+<link rel="stylesheet" href="../portfolio/panda-finale-transition.css?v=20261004-refine2">
+<link rel="stylesheet" href="../portfolio/panda-cursor-refine.css?v=20261004-ribbon">
+<link rel="stylesheet" href="../portfolio/panda-original/assets/panda-review-refinements.css?v=20261005-review">
+<script src="vendor/gsap/gsap.min.js" defer></script>
+<script src="vendor/gsap/ScrollTrigger.min.js" defer></script>
+<script src="vendor/lenis/lenis.min.js" defer></script>
+</head>
+<body class="panda-film-page" data-site-revision="20261004-panda-refine2">
+  <canvas class="dark-veil" id="dark-veil" aria-hidden="true"></canvas>
+  <div class="cursor"></div>
+  <svg class="gold-trail" id="gold-trail" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"></svg>
+  
+  <header class="site-signature"><a class="brand" href="#top">王淳 <small>WANG CHUN</small></a></header>
+  <nav class="chapter-nav" aria-label="章节导航">
+    <i class="chapter-nav-active" aria-hidden="true"></i>
+    <a href="#motion" aria-label="动态序章"><span class="chapter-nav-label">动态序章</span><i class="chapter-nav-tick" aria-hidden="true"></i></a>
+    <a href="#journey" aria-label="作品目录"><span class="chapter-nav-label">作品目录</span><i class="chapter-nav-tick" aria-hidden="true"></i></a>
+    <a href="#silk" aria-label="蜀绣灵境"><span class="chapter-nav-label">蜀绣灵境</span><i class="chapter-nav-tick" aria-hidden="true"></i></a>
+    <a href="#lingjing" aria-label="灵境同游"><span class="chapter-nav-label">灵境同游</span><i class="chapter-nav-tick" aria-hidden="true"></i></a>
+    <a href="#atelier" aria-label="金线拾光"><span class="chapter-nav-label">金线拾光</span><i class="chapter-nav-tick" aria-hidden="true"></i></a>
+    <a href="#wanxiang" aria-label="万象归绣"><span class="chapter-nav-label">万象归绣</span><i class="chapter-nav-tick" aria-hidden="true"></i></a>
+    <a href="#myth" aria-label="山海异兽"><span class="chapter-nav-label">山海异兽</span><i class="chapter-nav-tick" aria-hidden="true"></i></a>
+    <a href="#summary" aria-label="创作手记"><span class="chapter-nav-label">创作手记</span><i class="chapter-nav-tick" aria-hidden="true"></i></a>
+  </nav>
+  <main id="top" class="world">
+    <section class="panda-cover" id="motion" aria-label="万象生花·作品封面">
+      <img class="garden panda-cover-art" src="assets/W03-panda-environment-v1.png" alt="双熊猫花园，紫藤与牡丹之间的小道通向远处木亭" fetchpriority="high">
+      <div class="panda-cover-shade" aria-hidden="true"></div>
+      <div class="words panda-film-words"><p class="eyebrow">蜀绣 · 灵境</p><h1 class="world-title" aria-label="万象生花"><span class="wan">万</span><span class="xiang">象</span><span class="sheng">生</span><span class="hua">花</span></h1><p class="side-inscription">一针一线<br>花木相逢</p></div>
+      <a class="text-link panda-cover-enter" href="#journey" aria-label="展开作品目录">展开作品目录 <span aria-hidden="true">↓</span></a>
+    </section>
+    <section class="journey reveal" id="journey" aria-label="作品目录">
+      <header class="journey-heading"><span class="kicker">作品目录 · CONTENTS</span><h2>花园、针脚与山海，沿一卷徐徐展开。</h2><p class="journey-intro">以《牡丹熊猫花园》为起点，将花木与瑞兽的画面，延展为系列插画、长卷、纹样和游园短片。</p><dl class="panda-project-outline"><div><dt>视觉起点</dt><dd>熊猫、牡丹、紫藤与园林</dd></div><div><dt>画面语言</dt><dd>绣线肌理、金线与青绿山水</dd></div><div><dt>呈现形式</dt><dd>系列画作 · 纹样 · 动态游园</dd></div></dl></header>
+      <div class="map">
+        <img class="journey-art" src="../portfolio/panda-original/assets/generated/09-journey-embroidered-worlds.webp" width="1942" height="809" loading="lazy" decoding="async" alt="从熊猫与金丝猴的绣境花园，经花鸟亭台，走向白泽与九尾狐的幽林刺绣长卷">
+        <div class="journey-scenes" aria-hidden="true"><div></div><div></div><div></div></div>
+        <svg class="journey-route" aria-hidden="true" focusable="false"><path class="route-shadow"></path><path class="route-thread"></path></svg>
+        <button class="journey-stop" type="button" data-go="silk"><i class="map-dot" aria-hidden="true"></i><b>蜀绣灵境</b><span>熊猫与金丝猴栖于花木之间，<br>近看绣面与针脚。</span><small class="map-enter">浏览刺绣作品 ↗</small></button>
+        <button class="journey-stop" type="button" data-go="lingjing"><i class="map-dot" aria-hidden="true"></i><b>灵境同游</b><span>长卷徐展，循金线拾光，<br>走向万象归绣。</span><small class="map-enter">展开灵境长卷 ↗</small></button>
+        <button class="journey-stop" type="button" data-go="myth"><i class="map-dot" aria-hidden="true"></i><b>山海异兽</b><span>白泽、九尾狐与麒麟等生灵，<br>漫游青绿幽林。</span><small class="map-enter">翻阅异兽小志 ↗</small></button>
+      </div>
+    </section>
+    <section class="panda-film-section" aria-label="花园漫游短片">
+      <header class="panda-film-heading"><h2>入园一游</h2><span>GARDEN WALK · 00:44</span></header>
+      <div class="panda-film-hero" id="panda-film" data-film-state="idle">
+        <img class="panda-film-poster" src="assets/W03-panda-environment-v1.png" alt="牡丹熊猫花园漫游封面" loading="lazy">
+        <video class="panda-film-video" muted playsinline preload="none" poster="../portfolio/assets/video/panda-garden-walk-v7-poster.jpg" aria-label="沿林间小道漫游瑞兽花园">
+          <source data-src="../portfolio/assets/video/panda-garden-walk-v7.mp4" type="video/mp4">
+        </video>
+        <div class="panda-film-shade" aria-hidden="true"></div>
+        <div class="panda-film-play-position"><button class="panda-film-play" type="button" aria-label="播放花园漫游"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 4 12 8-12 8Z"/></svg></button></div>
+        <div class="panda-film-progress" aria-hidden="true"><span></span></div>
+        <div class="panda-film-message" role="status"></div>
+        <div class="panda-film-controls"><span class="panda-film-time" aria-hidden="true">0:00 / 0:44</span>
+          <input class="panda-film-seek" type="range" min="0" max="43.8" step="0.1" value="0" aria-label="花园漫游播放进度" aria-valuetext="0分00秒，共44秒" disabled data-lenis-prevent>
+          <button class="panda-film-toggle" type="button" aria-label="暂停花园漫游" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pause-symbol" d="M9 6v12M15 6v12"/><path class="play-symbol" d="m9 6 9 6-9 6Z"/><path class="replay-symbol" d="M5 9a8 8 0 1 1-1 7M5 4v5h5"/></svg></button>
+        </div>
+      </div>
+    </section>
+    <section id="silk" class="reveal"><div class="chapter"><div><h2>蜀绣灵境<br>瑞兽花园</h2></div><div><p>一针藏山色，一线引春来。熊猫卧于繁花，金丝猴栖于竹影，细密的针脚把四时的温柔，织成一座可以慢慢走入的花园。</p><div class="line"><span>金丝猴</span><span>熊猫</span><span>丝线肌理</span></div></div></div><div class="gallery"><div class="rail" id="silk-rail">
+      <article class="work" data-pos="panda" data-title="牡丹熊猫花园" data-type="蜀绣灵境 / 花鸟园林" data-desc="熊猫、牡丹、紫藤和鸟群被组织成一座轻盈的绣线花园；它也是后续动态短片的静态起点。"><img src="../portfolio/panda-original/assets/embroidery/peony-panda.png" alt="牡丹熊猫花园"><div class="work-info"><span class="type">PANDA · EMBROIDERY GARDEN</span><h3>牡丹熊猫花园</h3></div></article>
+      <article class="work" data-title="慈佑金灵" data-type="蜀绣灵境 / 瑞兽插画" data-desc="以瑞兽与自然植被的关系，补充灵境世界的守护主题。"><img src="../portfolio/panda-original/assets/embroidery/慈佑金灵.png" alt="慈佑金灵"><div class="work-info"><span class="type">SPIRIT · SILK THREAD ART</span><h3>慈佑金灵</h3></div></article>
+      <article class="work" data-title="踏雪寻春" data-type="蜀绣灵境 / 瑞兽花园" data-desc="雪意、春枝与瑞兽在绣线质感中相遇，以冷暖交织的画面延续灵境花园的四时叙事。"><img src="../portfolio/panda-original/assets/embroidery/踏雪寻春.png" alt="踏雪寻春"><div class="work-info"><span class="type">SNOW · SPRING · EMBROIDERY</span><h3>踏雪寻春</h3></div></article>
+      <article class="work" data-title="雪竹眠春" data-type="蜀绣灵境 / 瑞兽花园" data-desc="以雪竹、春意与安静的瑞兽姿态，呈现花园中更克制柔和的一面。"><img src="../portfolio/panda-original/assets/embroidery/雪竹眠春.png" alt="雪竹眠春"><div class="work-info"><span class="type">SNOW BAMBOO · SPIRIT GARDEN</span><h3>雪竹眠春</h3></div></article>
+      <article class="work" data-title="紫藤双瑞" data-type="蜀绣灵境 / 瑞兽花园" data-desc="紫藤垂落在两位瑞兽之间，借由繁花与丝线的层叠，丰富花园世界的生命感。"><img src="../portfolio/panda-original/assets/embroidery/紫藤双瑞.png" alt="紫藤双瑞"><div class="work-info"><span class="type">WISTERIA · TWIN SPIRITS</span><h3>紫藤双瑞</h3></div></article>
+      <article class="work" data-title="金线起针 · 针脚微观" data-type="蜀绣灵境 / 材质研究" data-desc="牡丹、竹叶与如意云纹被拆解成可近看的针脚结构；缎面针与鎏金盘金线在同一幅绣面上交织。"><img src="../portfolio/panda-original/assets/generated/07-embroidery-stitch-detail.png" alt="金线起针针脚微观"><div class="work-info"><span class="type">GOLD THREAD · STITCH STUDY</span><h3>金线起针 · 针脚微观</h3></div></article>
+      <article class="work" data-title="瑞兽花园 · 织境群像" data-type="蜀绣灵境 / 花园叙事" data-desc="金丝猴、熊猫、牡丹与竹影被安放在同一座幽静园林，作为瑞兽花园章节的群像收束。"><img src="../portfolio/panda-original/assets/generated/08-spirit-garden-panorama.png" alt="瑞兽花园织境群像"><div class="work-info"><span class="type">SPIRIT GARDEN · PANORAMA</span><h3>瑞兽花园 · 织境群像</h3></div></article>
+    </div><div class="gallery-toolbar"><div class="gallery-tools"><button id="lens-toggle" class="lens-toggle" type="button" aria-pressed="false" aria-controls="silk-rail" aria-describedby="gallery-hint"><i aria-hidden="true">＋</i><span>开启刺绣放大镜</span></button><p id="gallery-hint">绣卷缓行，花木相逢。拖动浏览，或轻触一幅作品。</p></div><div class="gallery-controls"><span id="gallery-count" aria-live="off">1 / 7</span><button id="gallery-prev" type="button" aria-label="上一件作品">←</button><button id="gallery-pause" type="button" aria-label="暂停作品轮播" aria-pressed="false">暂停轮播</button><button id="gallery-next" type="button" aria-label="下一件作品">→</button></div></div></div><div class="chapter-exit"><a class="text-link" href="#journey">↑ 返回目录</a><a class="text-link" href="#lingjing">下一卷 · 灵境同游 →</a></div></section>
+    <section class="lingjing-feature reveal" id="lingjing" aria-label="灵境同游">
+      <header class="scroll-heading"><h2>灵境同游</h2><p>花枝相接，山水相逢。<br>金丝猴与熊猫，沿着一卷春色缓缓同行。</p></header>
+      <div class="scroll-window" id="lingjing-scroll"><div class="scroll-track">
+        <article class="scroll-panel" data-title="灵境同游 · 金丝猴与熊猫" data-type="蜀绣灵境 / 长卷叙事" data-desc="松枝、牡丹、瑞鸟与山水沿丝线铺开，金丝猴与熊猫在同一座花园里相遇。画面以连续的枝叶与流动的云水，串起从花间到远山的视线。"><img src="../portfolio/panda-original/assets/generated/01-lingjing-companions.png" alt="灵境同游完整长卷，金丝猴与熊猫共处花木山水之间" loading="lazy" decoding="async"></article>
+
+        <article class="scroll-panel" aria-hidden="true"><img src="../portfolio/panda-original/assets/generated/01-lingjing-companions.png" alt="" loading="lazy" decoding="async"></article>
+        <article class="scroll-panel" aria-hidden="true"><img src="../portfolio/panda-original/assets/generated/01-lingjing-companions.png" alt="" loading="lazy" decoding="async"></article>
+      </div></div><div class="scroll-footer"><span>从左向右，一卷春色徐徐展开</span><button class="text-link" id="scroll-pause" type="button" aria-pressed="false">暂停长卷 Ⅱ</button></div>
+    </section>
+    <section class="atelier reveal" id="atelier"><div class="chapter"><div><h2>金线拾光</h2></div><div><p>把目光移近一些，沿一缕金线，看光如何落在绣面。花瓣、羽毛与如意云纹，都有自己的针脚与节奏。</p><div class="line"><span>盘金</span><span>纹样</span><span>针脚之间</span></div></div></div><div class="atelier-grid">
+      <article class="atelier-work" data-title="金线拾光 · 光阴有痕" data-type="绣线研究 / 光与肌理" data-desc="以金线的起伏记录光的游走。细密针脚与深绿绣面的明暗变化，让传统纹样有了可以被触想的厚度。"><img src="../portfolio/panda-original/assets/generated/06-golden-thread-opening.png" alt="金线在深绿绣面上展开的针脚与光泽" loading="lazy" decoding="async"><div class="atelier-caption"><h3>一针一线，光阴有痕</h3><span>查看作品 ↗</span></div></article>
+      <article class="atelier-work" data-title="花间纹样 · 万物成章" data-type="纹样研究 / 东方花鸟" data-desc="从花鸟与云水中采撷纹样，让自然的形态回到线条。独立的小景也可以组合成一卷新的东方故事。"><img src="../portfolio/panda-original/assets/generated/05-embroidered-ornament-sheet.png" alt="花鸟与云纹组成的东方刺绣纹样" loading="lazy" decoding="async"><div class="atelier-caption"><h3>花间纹样，万物成章</h3><span>查看作品 ↗</span></div></article>
+    </div></section>
+    <section class="closing reveal" id="wanxiang"><div class="closing-art"><img src="../portfolio/panda-original/assets/generated/04-wanxiang-closing.png" alt="万象归绣东方生灵"><div class="closing-copy"><h2>万象归绣<br>东方生灵</h2><p>从灵境花园到幽林异兽，每一位生灵都由同一根金线牵引，回到东方叙事的温度之中。</p><a class="text-link" href="#silk">返回绣境花园 →</a></div></div></section>
+    <section class="gate reveal" aria-label="山海启卷"><div class="gate-art"><img src="../portfolio/panda-original/assets/generated/03-shanhai-scroll-transition.png" alt="山海启卷刺绣转场"></div></section>
+    <section class="myth reveal" id="myth"><div class="chapter"><div><h2>山海经<br>异兽小志</h2></div><div><p>循着九尾狐的足迹，走进青绿幽林。白泽听风，麒麟衔芳，朱雀栖云，玄武守月；古老传说里的生灵，在柔和的笔触间相逢。</p><div class="line"><span>神兽人物志</span><span>青绿幽林</span><span>神话新绘</span></div></div></div><div class="myth-grid">
+      <article class="myth-card" data-title="白泽神兽志" data-type="山海经 / 神兽角色设计" data-desc="横构图以幽林和萤光为场景，把白泽的智慧、守护与自然感收拢到一个有呼吸的神话瞬间。"><img src="../portfolio/panda-original/assets/myth/baize-landscape.png" alt="白泽神兽横构图"><div class="work-info"><span class="type">BAIZE · FOREST GUARDIAN</span><h3>白泽神兽志</h3></div></article>
+      <article class="myth-card" data-title="九尾狐" data-type="山海经 / 神兽角色设计" data-desc="以幽林、石刻与水面倒影塑造九尾狐的灵性；横构图让九尾的流动和空间层次更完整。"><img src="../portfolio/panda-original/assets/myth/nine-tailed-fox.png" alt="九尾狐横构图"><div class="work-info"><span class="type">NINE-TAILED FOX · QUIET WATERS</span><h3>九尾狐</h3></div></article>
+      <article class="myth-card" data-title="麒麟 · 青林衔芳" data-type="神兽人物志 / 青林衔芳" data-desc="青玉色的麒麟俯身衔起一枝春花，蹄尖轻触林间浅水。鬃毛与鳞片融入柔和的青绿笔触，像一阵尚未惊动花木的风。"><img src="../portfolio/panda-original/assets/generated/painted-beasts/qilin-painted.webp" width="1536" height="1024" alt="麒麟衔着白花涉过青绿幽林中的浅水" loading="lazy" decoding="async"><div class="work-info"><span class="type">QILIN · FLOWERS IN THE FOREST</span><h3>麒麟 · 青林衔芳</h3><p class="art-note">衔一枝春色，踏一潭清光。</p></div></article>
+      <article class="myth-card" data-title="朱雀 · 丹羽栖云" data-type="神兽人物志 / 丹羽栖云" data-desc="朱红的长羽停落在青绿林间，尾翎循枝而下，如一笔未收的丹砂。用温暖的赭红和松散的羽片，写下神鸟安静的一面。"><img src="../portfolio/panda-original/assets/generated/painted-beasts/zhuque-painted.webp" width="1536" height="1024" alt="朱雀舒展朱红尾羽栖于青绿林间" loading="lazy" decoding="async"><div class="work-info"><span class="type">ZHUQUE · VERMILION PLUMES</span><h3>朱雀 · 丹羽栖云</h3><p class="art-note">丹羽掠青岚，林深留晚照。</p></div></article>
+      <article class="myth-card" data-title="玄武 · 玄潭守月" data-type="神兽人物志 / 玄潭守月" data-desc="龟与蛇相依于苔石浅潭之间，厚重的甲背与舒缓的曲线，合成一种沉静的守望。水纹、苔痕与幽林的倒影，把时间轻轻留住。"><img src="../portfolio/panda-original/assets/generated/painted-beasts/xuanwu-painted.webp" width="1536" height="1024" alt="玄武龟蛇相依守望幽林中的苔石浅潭" loading="lazy" decoding="async"><div class="work-info"><span class="type">XUANWU · STILL WATERS</span><h3>玄武 · 玄潭守月</h3><p class="art-note">苔石藏旧梦，清潭照千年。</p></div></article>
+    </div></section>
+    <section class="panda-finale" id="summary" aria-labelledby="panda-finale-title">
+      <div class="panda-finale-backdrop" aria-hidden="true"><img src="assets/W03-panda-environment-v1.png" alt="" loading="lazy"></div>
+      <div class="panda-finale-panel">
+        <div class="panda-finale-art"><img src="../portfolio/panda-original/assets/embroidery/peony-panda.png" alt="牡丹熊猫花园原作" loading="lazy" decoding="async"></div>
+        <div class="panda-finale-copy">
+          <span class="panda-finale-kicker">绣境 · 创作手记</span>
+          <h2 id="panda-finale-title">山河入绣<br>万象生花</h2>
+          <p>从一幅熊猫花园开始，让东方花木与神话生灵，成为一座可以走入、也可以停下来细看的绣境。</p>
+          <dl class="panda-finale-notes">
+            <div><dt>花园叙事</dt><dd>熊猫、金丝猴与四时花木，在系列插画与长卷中相逢。</dd></div>
+            <div><dt>针脚与光</dt><dd>沿金线、花鸟与云纹，近看色彩、纹样和绣面的层次。</dd></div>
+            <div><dt>山海回响</dt><dd>白泽、九尾狐、麒麟、朱雀与玄武，回到青绿幽林。</dd></div>
+          </dl>
+          <div class="artist-signature" aria-label="王淳签名"><span>王淳</span><small>于绣境深处，留一缕光</small></div>
+        </div>
+      </div>
+      <div class="panda-finale-actions">
+        <a class="panda-finale-return" data-project-return data-project-complete href="../portfolio/index.html#painting"><span aria-hidden="true">↶</span><span>回到画前</span></a>
+        <button class="panda-finale-replay" type="button" aria-label="重新漫游花园"><span aria-hidden="true">↻</span><span>再游一次</span></button>
+      </div>
+    </section>
+  </main><footer><span>© 2026 WANG CHUN. VISUAL WORKS &amp; SITE.</span><span>EMBROIDERED WORLDS · MYTHICAL CREATURES</span></footer>
+  <dialog class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description"><div class="modal-inner"><button class="close" type="button" aria-label="关闭作品预览">×</button><div class="modal-stage"><img id="modal-img" alt=""></div><div class="modal-details"><span class="type" id="modal-type"></span><h2 id="modal-title"></h2><p id="modal-description"></p><div class="modal-navigation"><button type="button" id="modal-prev" aria-label="上一件作品">←</button><span id="modal-count" aria-live="polite"></span><button type="button" id="modal-next" aria-label="下一件作品">→</button></div><small>左右方向键切换 · Esc 返回</small></div></div></dialog>
+  <script>
+    document.querySelectorAll('[data-go]').forEach(button=>button.onclick=event=>{
+      const target=document.getElementById(button.dataset.go);
+      if(window.__pandaNavigateChapter)window.__pandaNavigateChapter(target,{keyboard:event.detail===0});
+      else if(window.__pandaScrollTo)window.__pandaScrollTo(target);
+      else target?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+    });
+    document.querySelectorAll('.work,.myth-card,.lingjing-frame,.gate-art,.closing-art').forEach(card=>card.classList.add('touch-art'));
+    document.querySelectorAll('.work img,.myth-card img,.lingjing-frame img,.gate-art img,.closing-art img').forEach(image=>{image.loading='lazy';image.decoding='async';});
+    const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('show');revealObserver.unobserve(entry.target);}}),{threshold:.08});
+    document.querySelectorAll('.reveal').forEach(element=>revealObserver.observe(element));
+  </script>
+<script type="module">import {createPandaFilm} from "../portfolio/panda-film-controller.mjs?v=20261005-review"; createPandaFilm({doc:document,view:window});</script>
+</body></html>

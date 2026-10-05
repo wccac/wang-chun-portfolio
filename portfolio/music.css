@@ -1,0 +1,32 @@
+/* A persistent local track keeps playing while this compact panel is folded. */
+.cottage-music{position:fixed;z-index:70;top:84px;right:32px;width:min(340px,calc(100vw - 40px));box-sizing:border-box;border:1px solid #dddfcc;border-radius:14px;background:#f8f8f3;color:#28372a;box-shadow:0 15px 45px #081c1830;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;animation:music-appear .18s ease-out}
+.cottage-music[hidden]{display:none!important}
+.music-panel-head{display:flex;align-items:center;justify-content:space-between;padding:8px 9px 4px 17px;font-size:12px;letter-spacing:.12em}
+.music-close{display:grid;place-items:center;width:36px;height:36px;padding:0;border:0;border-radius:50%;background:transparent;color:inherit}
+.music-close svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.5}
+.music-close:hover{background:#e8edde}
+.music-track{display:flex;gap:14px;align-items:center;padding:12px 18px 18px}
+.music-track strong{display:block;font:500 21px/1.2 Georgia,serif;letter-spacing:-.02em}
+.music-title{color:inherit;text-decoration:none}.music-title:hover{text-decoration:underline}
+.music-track p{font-size:11px;color:#66715f;margin:5px 0 8px}
+.music-state{font-size:10px;color:#5b7352;letter-spacing:.08em}
+.music-play{display:grid;place-items:center;flex:none;width:48px;height:48px;border:1px solid #5b7352;border-radius:50%;background:#e8edde;color:#334a36;cursor:pointer}
+.music-play:hover{background:#dce6d0}
+.music-play svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linejoin:round}
+.music-volume{display:flex;gap:12px;align-items:center;margin:0 18px 8px;font-size:11px;color:#596652}
+.music-volume span{white-space:nowrap}.music-volume input{min-width:0;flex:1;accent-color:#536b47;cursor:pointer}.music-volume output{width:30px;text-align:right;font-variant-numeric:tabular-nums}
+.music-panel-foot{display:flex;align-items:center;justify-content:space-between;padding:6px 18px 10px;gap:16px;font-size:11px}
+.music-effects{display:flex;align-items:center;gap:6px;min-height:32px;cursor:pointer;white-space:nowrap}
+.music-effects input{width:15px;height:15px;margin:0;accent-color:#536b47;cursor:pointer}
+.music-stop{border:1px solid #c9d1bf;background:transparent;color:inherit;border-radius:20px;padding:8px 12px;font-size:11px;cursor:pointer}
+.music-stop:hover{background:#e8edde}
+.music-credit{display:flex;justify-content:space-between;gap:10px;border-top:1px solid #e2e5da;margin:0 18px;padding:12px 0 14px;font-size:9px}
+.music-credit a{color:#66715f;text-decoration:none}.music-credit a:hover{color:#28372a;text-decoration:underline}
+.cottage-music button:focus-visible,.cottage-music a:focus-visible,.cottage-music input:focus-visible{outline:2px solid #596f42;outline-offset:2px}
+.music-toggle{position:relative}.music-toggle svg{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.music-toggle[data-music-state=playing]:after{content:"";position:absolute;right:9px;bottom:8px;width:4px;height:4px;border-radius:50%;background:#d5e1a4}
+.music-toggle[aria-expanded=true]{background:#334a36d9;border-color:#f7f3d575}
+@keyframes music-appear{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){.cottage-music{top:max(78px,calc(env(safe-area-inset-top) + 66px));right:20px}}
+@media(max-height:460px){.cottage-music{top:70px;max-height:calc(100dvh - 80px);overflow:auto}}
+@media(prefers-reduced-motion:reduce){.cottage-music{animation:none}}

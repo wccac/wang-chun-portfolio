@@ -1,0 +1,32 @@
+.cottage-book-backdrop,.cottage-book-paper,.cottage-book-cover,.cottage-book-hand{position:fixed;pointer-events:none;box-sizing:border-box}
+.cottage-book-backdrop{inset:0;z-index:21;overflow:hidden}
+.cottage-book-backdrop img{position:absolute;display:block;max-width:none;image-rendering:pixelated;user-select:none}
+.cottage-book-paper{z-index:22;background:#fff;box-shadow:0 2px 0 #fff,0 6px 0 #000,0 20px 40px #100d0a65;border:3px solid #000;transform-origin:0 0;will-change:transform,opacity}
+.cottage-book-paper:before{content:"";position:absolute;top:-3px;bottom:-3px;right:100%;width:100%;background:#fff;border:3px solid #000;border-right:0;box-shadow:-1px 2px 0 #fff,-2px 6px 0 #000;transform-origin:100% 50%;transform:scaleX(var(--left-page,0))}
+.cottage-book-paper:after{content:"";position:absolute;left:-3px;top:0;bottom:0;width:7px;background:linear-gradient(90deg,#fff,#d9d9d9 48%,#fff);opacity:var(--left-page,0)}
+.cottage-book-cover{z-index:24;perspective:1200px;perspective-origin:0% 50%;transform-origin:0 0;will-change:transform,opacity}
+.cottage-book-leaf{position:absolute;inset:0;transform-origin:0% 50%;transform-style:preserve-3d;will-change:transform}
+.cottage-book-front,.cottage-book-inner{position:absolute;inset:0;border:1px solid #1d211b;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.cottage-book-front{background-color:#11120f;background-size:200% 100%;background-position:right center;box-shadow:inset 4px 0 #333a33,inset -2px 0 #060705}
+.cottage-book-front:after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:4px;background:linear-gradient(#fff 0 25%,#bbb 25% 45%,#fff 45% 75%,#282a25 75%);border-radius:0 0 1px 2px}
+.cottage-book-source-cover{position:absolute;inset:0;background-repeat:no-repeat;image-rendering:pixelated;transition:none}
+.cottage-book-inner{transform:rotateY(180deg);background:#fff;box-shadow:inset -8px 0 12px -12px #555}
+.cottage-book-hand{z-index:21;overflow:hidden;transform-origin:0 0;will-change:transform,opacity}
+.cottage-book-hand img{position:absolute;top:0;display:block;max-width:none;width:1586px;height:992px;image-rendering:pixelated;user-select:none}
+.cottage-book-hand-left img{left:0}
+.cottage-book-hand-right img{left:-793px}
+.cottage-book-thumb{z-index:25;filter:drop-shadow(1px 2px 1px #24180b44)}
+.cottage-book-thumb-left{clip-path:polygon(348px 598px,380px 598px,399px 620px,405px 654px,399px 674px,375px 702px,338px 742px,311px 753px,297px 736px,313px 694px,330px 651px,337px 621px)}
+.cottage-book-thumb-right{clip-path:polygon(410px 598px,441px 598px,459px 622px,467px 646px,482px 675px,511px 715px,525px 746px,508px 766px,487px 757px,455px 722px,419px 692px,401px 666px,391px 638px,401px 612px)}
+.cottage-book-sleeve-tail{position:absolute;left:0;top:980px;width:793px;height:1200px;overflow:hidden}
+.cottage-book-sleeve-tail img{top:-980px;transform:scaleY(100);transform-origin:0 980px}
+.cottage-book-gesture{position:fixed;left:0;top:0;width:560px;height:1300px;z-index:25;pointer-events:none;transform-origin:0 0;will-change:transform,opacity;image-rendering:pixelated}
+.cottage-book-touch{position:fixed;width:27px;height:27px;border:1px solid #34372c85;border-radius:50%;z-index:24;pointer-events:none;box-shadow:0 0 0 1px #fff9}
+
+.cottage-book-desk-patch{position:absolute;overflow:hidden;opacity:0;mask-image:linear-gradient(90deg,transparent,#000 16px,#000 calc(100% - 16px),transparent),linear-gradient(transparent,#000 16px,#000 calc(100% - 16px),transparent);mask-composite:intersect;will-change:opacity}
+.cottage-book-shade{position:absolute;inset:0;pointer-events:none;will-change:opacity}
+.cottage-book-paper-shade:before{content:"";position:absolute;inset:0 100% 0 auto;width:100%;transform-origin:100% 50%;transform:scaleX(var(--left-page,0))}
+.cottage-book-world-warmth{position:fixed;left:0;top:0;z-index:23;pointer-events:none;transform-origin:0 0;opacity:0;will-change:transform,opacity}
+
+/* Multiply preserves printed blacks; no material overlay is applied to the cover. */
+.cottage-book-shade,.cottage-book-paper-shade:before,.cottage-book-world-warmth{background-color:#f6eddb;background-image:url("assets/book-paper-grain.svg");background-size:180px 180px;mix-blend-mode:multiply}

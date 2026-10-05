@@ -1,0 +1,17 @@
+/* The gallery carries motion; printed artwork and its glass controls stay intact. */
+.portfolio-motion-carrier {
+  display: block;
+  min-width: 0;
+}
+
+/* Promotion exists only while a visible work is arriving. No permanent GPU wall. */
+[data-editorial-art-state="arriving"] {
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-editorial-art] {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

@@ -1,0 +1,9 @@
+/* Keep the original artwork website inside the cottage's navigation shell. */
+html{background:#102b23;scrollbar-color:#778b72 #102b23}
+body{background:#0b2822}
+dialog.modal{margin:0;width:100%;height:100%;max-width:none;max-height:none;border:0;color:inherit}
+dialog.modal:not([open]){display:none!important}
+dialog.modal::backdrop{background:transparent}
+.portfolio-embedded .site-signature{display:none}
+.portfolio-embedded .chapter-nav{z-index:60}
+@media(prefers-reduced-motion:reduce){#garden-video{visibility:hidden}.hero{background-image:url('generated/02-peony-garden-video-poster.png');background-position:center;background-size:cover}}

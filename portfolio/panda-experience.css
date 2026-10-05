@@ -1,0 +1,409 @@
+/* Panda portfolio: a web approximation of clear, curved-edge glass.
+   The lens and rim flex; labels and pointer targets stay in place. */
+body.panda-film-page {
+  --panda-glass-ink: #eee9da;
+  --panda-glass-tint: rgb(230 241 225 / .045);
+  --panda-glass-shadow: rgb(1 16 10 / .3);
+  --panda-ease: cubic-bezier(.22, 1, .36, 1);
+}
+body.panda-film-page .panda-glass-control,
+body.panda-film-page .panda-glass-control:hover,
+body.panda-film-page .panda-glass-control:active {
+  isolation: isolate;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  color: var(--panda-glass-ink);
+  box-shadow: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: color 180ms ease, opacity 180ms ease;
+}
+body.panda-film-page .panda-glass-control:not(.journey-stop):not(.panda-film-next):not(.panda-film-toggle):not(.close):not(.music-control) {
+  position: relative;
+}
+body.panda-film-page .panda-glass-control::before,
+body.panda-film-page .panda-glass-control::after { content: none; }
+body.panda-film-page .panda-glass-control:focus-visible {
+  outline: 2px solid #f3e7bf;
+  outline-offset: 5px;
+}
+body.panda-film-page .panda-glass-control:disabled {
+  opacity: .32;
+  cursor: default;
+}
+body.panda-film-page .panda-glass-surface-host { isolation: isolate; }
+body.panda-film-page .panda-glass-surface-host:not(.panda-glass-control) { position: relative; }
+body.panda-film-page .panda-glass-surface {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: block;
+  overflow: hidden;
+  border-radius: inherit;
+  background: var(--panda-glass-tint);
+  pointer-events: none;
+  transform-origin: center;
+  box-shadow: 0 6px 20px -10px var(--panda-glass-shadow),
+    0 1px 3px rgb(1 16 10 / .18),
+    inset 1.5px 2px 2px -1px rgb(255 255 241 / .62),
+    inset -1px -2px 3px -1px rgb(223 239 222 / .42),
+    inset 2px -1px 5px -3px rgb(3 21 12 / .35);
+  transition: background-color 180ms ease, box-shadow 220ms ease;
+}
+body.panda-film-page .panda-glass-lens {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border-radius: inherit;
+  pointer-events: none;
+  -webkit-backdrop-filter: blur(.8px) saturate(1.08);
+  backdrop-filter: blur(.8px) saturate(1.08);
+}
+body.panda-film-page .panda-glass-lens.is-refractive {
+  backdrop-filter: var(--panda-lens-filter) saturate(1.08);
+}
+body.panda-film-page .panda-glass-surface::before,
+body.panda-film-page .panda-glass-surface::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+body.panda-film-page .panda-glass-surface::before {
+  padding: 1px;
+  background: linear-gradient(145deg, #ffffeee6, #e5f3dd85 17%, #eef4dc14 34%,
+    #03251145 46%, #ffffff12 58%, #f8f8e3e8 80%, #d3e9d563 92%, #ffffff26);
+}
+body.panda-film-page .panda-glass-surface::after {
+  padding: 3px;
+  background: radial-gradient(ellipse at var(--panda-light-x, 28%) var(--panda-light-y, 20%),
+    #fffff5f2, #e8f1d647 35%, transparent 68%);
+  opacity: .38;
+  transition: opacity 180ms ease;
+}
+body.panda-film-page .panda-glass-control:is(.is-glass-hovered, .is-glass-pressed, :focus-visible) .panda-glass-surface {
+  background-color: rgb(235 245 229 / .085);
+  box-shadow: 0 9px 24px -10px var(--panda-glass-shadow),
+    0 2px 5px rgb(1 16 10 / .2),
+    inset 1.5px 2px 3px -1px rgb(255 255 244 / .82),
+    inset -1px -2px 4px -1px rgb(234 247 230 / .59);
+}
+body.panda-film-page .panda-glass-control:is(.is-glass-hovered, .is-glass-pressed, :focus-visible) .panda-glass-surface::after { opacity: 1; }
+body.panda-film-page .panda-glass-control:is(:active, .is-glass-pressed) .panda-glass-surface::after { opacity: 1; transition: none; }
+body.panda-film-page .panda-glass-control[aria-pressed='true'] .panda-glass-surface { background: rgb(217 235 196 / .12); }
+body.panda-film-page .panda-glass-icon {
+  display: block;
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: .84;
+  pointer-events: none;
+}
+body.panda-film-page :is(.gallery-controls, .rail-nav, .modal-navigation) .panda-glass-control,
+body.panda-film-page .modal .close.panda-glass-control,
+body.panda-film-page .panda-art-open.panda-glass-control {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  min-height: 46px;
+  padding: 0;
+  border-radius: 50%;
+  font: 20px/1 Arial, sans-serif;
+}
+body.panda-film-page #gallery-pause.panda-glass-control,
+body.panda-film-page .lens-toggle.panda-glass-control,
+body.panda-film-page .text-link.panda-glass-control,
+body.panda-film-page .music-control.panda-glass-control,
+body.panda-film-page .panda-finale-replay.panda-glass-control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: auto;
+  min-height: 44px;
+  padding: 10px 19px;
+  border-radius: 999px;
+  font: 400 13px/1.6 var(--serif, 'Songti SC', serif);
+  letter-spacing: .06em;
+  text-align: center;
+  text-decoration: none;
+  transform: none;
+}
+body.panda-film-page .hero-enter.panda-glass-control { padding: 12px 23px; min-height: 48px; }
+body.panda-film-page .lens-toggle.panda-glass-control,
+body.panda-film-page .lens-toggle.panda-glass-control:is(:hover, :active, .is-on) {
+  justify-content: flex-start;
+  gap: 9px;
+  padding: 10px 17px;
+  background: transparent;
+  color: var(--panda-glass-ink);
+  border: 0;
+  box-shadow: none;
+  transform: none;
+}
+body.panda-film-page .lens-toggle.panda-glass-control > i:not(.panda-glass-surface) {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  transform: none;
+}
+body.panda-film-page .lens-toggle.panda-glass-control > i:not(.panda-glass-surface)::after { content: none; }
+body.panda-film-page .lens-toggle.panda-glass-control > i:not(.panda-glass-surface) .panda-glass-icon { width: 18px; height: 18px; }
+body.panda-film-page .lens-toggle.panda-glass-control :is(.panda-glass-surface, .panda-glass-lens) {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: auto;
+  height: auto;
+  padding: 0;
+  border: 0;
+  line-height: normal;
+}
+body.panda-film-page .lens-toggle.panda-glass-control .panda-glass-lens { background: transparent; box-shadow: none; }
+body.panda-film-page .lens-toggle.panda-glass-control .panda-glass-lens::after { content: none; }
+body.panda-film-page .lens-toggle.panda-glass-control > .panda-glass-surface::after { width: auto; height: auto; transform: none; }
+body.panda-film-page .lens-toggle.panda-glass-control[aria-pressed='true'] .panda-glass-surface { background: rgb(217 235 196 / .08); }
+body.panda-film-page .panda-film-controls .panda-glass-control { width: 48px; height: 48px; border-radius: 50%; }
+body.panda-film-page .panda-film-controls :is(button, a).panda-glass-control { position: absolute; }
+body.panda-film-page .panda-film-controls .panda-glass-surface { position: absolute; inset: 0; width: auto; height: auto; border: 0; animation: none; }
+body.panda-film-page .panda-film-controls .panda-glass-lens { animation: none; border: 0; inset: 0; }
+body.panda-film-page .journey .map .journey-stop.panda-glass-control { border-radius: 0; }
+body.panda-film-page .journey .map .journey-stop .map-enter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-height: 40px;
+  padding: 10px 16px;
+  margin-top: 15px;
+  border-radius: 999px;
+  color: #ede8d6;
+  font: 11px/1.5 var(--serif, 'Songti SC', serif);
+  letter-spacing: .05em;
+}
+body.panda-film-page .journey .map .journey-stop .panda-glass-surface,
+body.panda-film-page .journey .map .journey-stop .panda-glass-lens {
+  width: auto;
+  height: auto;
+  margin: 0;
+  animation: none;
+}
+body.panda-film-page .journey .map .journey-stop .panda-glass-lens { background: none; box-shadow: none; }
+body.panda-film-page .modal .close.panda-glass-control { position: absolute; z-index: 4; right: 17px; top: 17px; }
+body.panda-film-page .panda-art-open.panda-glass-control {
+  position: absolute !important;
+  z-index: 8;
+  right: 16px;
+  bottom: 16px;
+  --panda-glass-tint: rgb(15 30 21 / .12);
+  pointer-events: none;
+}
+body.panda-film-page .panda-art-open.panda-glass-control .panda-glass-icon { width: 24px; height: 24px; }
+body.panda-film-page .chapter-exit { flex-wrap: wrap; }
+
+/* A final pause in the garden: artwork, a short colophon, and one clear way home. */
+body.panda-film-page .panda-finale {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(30px, 5svh, 60px);
+  min-height: 100svh;
+  padding: clamp(80px, 10svh, 130px) 6vw max(64px, env(safe-area-inset-bottom));
+  overflow: clip;
+  color: #f1ead6;
+  background: #11291f;
+}
+body.panda-film-page .panda-finale::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 200px;
+  z-index: -1;
+  background: linear-gradient(#102b23, transparent);
+  pointer-events: none;
+}
+body.panda-film-page .panda-finale-backdrop {
+  position: absolute;
+  inset: -5%;
+  z-index: -3;
+  overflow: hidden;
+  pointer-events: none;
+}
+body.panda-film-page .panda-finale-backdrop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(18px) saturate(.68) brightness(.6);
+  transform: scale(1.06);
+}
+body.panda-film-page .panda-finale-backdrop::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #09231945, #09231900 36%, #071d18b8);
+}
+body.panda-film-page .panda-finale-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(160px, .78fr) minmax(0, 1.22fr);
+  gap: clamp(24px, 4vw, 54px);
+  align-items: center;
+  width: min(840px, 100%);
+  margin: 0;
+  padding: clamp(25px, 3.7vw, 46px);
+  border: 1px solid #e5eed743;
+  border-radius: 3px;
+  background: linear-gradient(140deg, #d9e5c61b, #0c281b59 72%);
+  box-shadow: 0 32px 90px -36px #0008, inset 0 1px #f4f2da24;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+body.panda-film-page .panda-finale-art { min-width: 0; margin: 0; }
+body.panda-film-page .panda-finale-art img {
+  display: block;
+  width: 100%;
+  height: clamp(235px, 29vw, 330px);
+  object-fit: contain;
+  filter: none;
+  box-shadow: 0 16px 25px -15px #0008;
+}
+body.panda-film-page .panda-finale-copy { min-width: 0; }
+body.panda-film-page .panda-finale-copy > :is(.kicker, .panda-finale-kicker, small) {
+  display: block;
+  color: #ced7bc;
+  font: 10px/1.8 Arial, sans-serif;
+  letter-spacing: .18em;
+}
+body.panda-film-page .panda-finale-copy h2 {
+  margin: 19px 0 21px;
+  color: #f0e5c6;
+  font: 400 clamp(40px, 4.5vw, 65px)/1.19 var(--calligraphy, 'Songti SC', serif);
+  letter-spacing: .07em;
+  text-wrap: balance;
+}
+body.panda-film-page .panda-finale-copy p {
+  max-width: 30em;
+  margin: 0;
+  color: #cbd6c2;
+  font: 14px/2.05 var(--serif, 'Songti SC', serif);
+  letter-spacing: .05em;
+  text-wrap: pretty;
+}
+body.panda-film-page .panda-finale-copy p + p { margin-top: 14px; }
+body.panda-film-page .panda-finale-copy .panda-finale-meta {
+  margin-top: 24px;
+  padding-top: 17px;
+  border-top: 1px solid #e9e4c323;
+  color: #b2c1a7;
+  font: 10px/1.8 var(--serif, 'Songti SC', serif);
+  letter-spacing: .12em;
+}
+body.panda-film-page .panda-finale-notes {
+  display: grid;
+  gap: 10px;
+  margin: 25px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid #e9e4c323;
+  color: #c1ceb4;
+  font: 11px/1.8 var(--serif, 'Songti SC', serif);
+}
+body.panda-film-page .panda-finale-notes > div { display: grid; grid-template-columns: 4em minmax(0, 1fr); gap: 16px; }
+body.panda-film-page .panda-finale-notes dt { color: #aabc9e; letter-spacing: .12em; }
+body.panda-film-page .panda-finale-notes dd { margin: 0; }
+body.panda-film-page .panda-finale-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: min(330px, 100%);
+}
+body.panda-film-page .panda-finale-return.panda-glass-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: min(310px, 100%);
+  min-height: 66px;
+  padding: 18px 28px;
+  border-radius: 999px;
+  color: #f1eedb;
+  font: 400 17px/1.7 var(--serif, 'Songti SC', serif);
+  letter-spacing: .12em;
+  text-decoration: none;
+  --panda-glass-tint: rgb(226 239 211 / .06);
+}
+body.panda-film-page .panda-finale-return .panda-glass-icon { width: 26px; height: 26px; }
+body.panda-film-page .panda-finale-replay.panda-glass-control { font-size: 11px; padding: 9px 18px; color: #d4ddc8; }
+body.panda-film-page .panda-finale-note { margin: 0; font: 10px/1.7 var(--serif, 'Songti SC', serif); color: #a5b99f; letter-spacing: .12em; }
+body.panda-film-page .panda-finale-signature { color: #cbbd8b; font: 400 36px/1.4 'Artist Signature', var(--calligraphy, serif); }
+
+@media (hover: hover) and (pointer: fine) {
+  body.panda-film-page .panda-art-open { opacity: 0; translate: 0 7px; transition: opacity 240ms ease, translate 340ms var(--panda-ease); }
+  body.panda-film-page [data-title]:is(:hover, :focus-within) .panda-art-open { opacity: 1; translate: 0 0; }
+}
+@media (hover: none), (pointer: coarse) {
+  body.panda-film-page .lens-toggle.panda-glass-control { display: none; }
+}
+@media (max-width: 760px) {
+  body.panda-film-page .gallery-controls { flex-wrap: wrap; gap: 10px; }
+  body.panda-film-page #gallery-pause.panda-glass-control { padding-inline: 14px; }
+  body.panda-film-page .chapter-exit { gap: 14px; }
+  body.panda-film-page .text-link.panda-glass-control { padding-inline: 16px; font-size: 12px; }
+  body.panda-film-page .panda-finale { gap: 33px; padding: 80px 7vw 72px; }
+  body.panda-film-page .panda-finale-panel { grid-template-columns: minmax(100px, .75fr) minmax(0, 1.25fr); gap: 22px; padding: 25px; }
+  body.panda-film-page .panda-finale-art img { height: 220px; }
+  body.panda-film-page .panda-finale-copy h2 { font-size: 39px; margin-block: 15px; }
+  body.panda-film-page .panda-finale-copy p { font-size: 12px; line-height: 1.95; }
+  body.panda-film-page .panda-finale-copy .panda-finale-meta { font-size: 9px; margin-top: 16px; }
+  body.panda-film-page .panda-finale-return.panda-glass-control { min-height: 62px; font-size: 15px; }
+}
+@media (max-width: 470px) {
+  body.panda-film-page .panda-finale-panel { grid-template-columns: 1fr; gap: 24px; text-align: center; }
+  body.panda-film-page .panda-finale-art img { height: 210px; }
+  body.panda-film-page .panda-finale-copy h2 { font-size: 43px; }
+  body.panda-film-page .panda-finale-copy p { margin-inline: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.panda-film-page .panda-glass-surface { transform: none !important; transition: none; }
+  body.panda-film-page .panda-glass-surface::after,
+  body.panda-film-page .panda-glass-control { transition: none; }
+  body.panda-film-page .panda-art-open { translate: none; transition: opacity 100ms linear; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  body.panda-film-page .panda-glass-surface { background: #233f32; }
+  body.panda-film-page .panda-glass-lens { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  body.panda-film-page .panda-finale-panel { background: #193427; }
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  body.panda-film-page .panda-glass-surface { background: rgb(19 43 30 / .86); }
+  body.panda-film-page .panda-finale-panel { background: rgb(19 43 30 / .93); }
+}
+@media (forced-colors: active) {
+  body.panda-film-page .panda-glass-surface { display: none; }
+  body.panda-film-page .panda-glass-control { border: 1px solid ButtonText; background: ButtonFace; color: ButtonText; }
+  body.panda-film-page .panda-finale-panel { border: 1px solid CanvasText; background: Canvas; color: CanvasText; }
+}

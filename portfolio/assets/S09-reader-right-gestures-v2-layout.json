@@ -1,0 +1,24 @@
+{
+  "width": 1683,
+  "height": 935,
+  "poses": [
+    {
+      "key": "point",
+      "sourceRect": [100, 300, 500, 630],
+      "wristAnchorLocal": [265, 431],
+      "fingertipsLocal": {"index": [92, 48], "thumb": [109, 237]}
+    },
+    {
+      "key": "pinch",
+      "sourceRect": [660, 300, 500, 630],
+      "wristAnchorLocal": [284, 431],
+      "fingertipsLocal": {"index": [99, 172], "thumb": [86, 207]}
+    },
+    {
+      "key": "spread",
+      "sourceRect": [1183, 300, 500, 630],
+      "wristAnchorLocal": [293, 431],
+      "fingertipsLocal": {"index": [226, 31], "thumb": [59, 267]}
+    }
+  ]
+}
