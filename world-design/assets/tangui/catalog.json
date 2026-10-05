@@ -14,7 +14,7 @@
       "designLogic": "暖灰象牙纸面代表日光初现，右侧压凹木纹既是触觉记忆，也是沿日影分割线开启包装的结构提示。",
       "boundary": "15 MIN 为概念目标值；需以香径、配方、湿度和三批样品燃烧测试确定最终规格。",
       "linkedTime": "15",
-      "src": "assets/tangui/refill-15.webp",
+      "src": "assets/tangui/refill-15-r3.webp",
       "width": 1132,
       "height": 1390
     },
@@ -32,7 +32,7 @@
       "designLogic": "墨黑正面压低视觉噪声，木纹右板与日影折线共同构成开合方向；白色标志和大号 30 形成远距识别。",
       "boundary": "香气描述和 30 MIN 时长均为设计假设，需在配方、燃烧稳定性与室内安全测试完成后定稿。",
       "linkedTime": "30",
-      "src": "assets/tangui/refill-30.webp",
+      "src": "assets/tangui/refill-30-r3.webp",
       "width": 1132,
       "height": 1390
     },
@@ -50,7 +50,7 @@
       "designLogic": "深褐纸面与右侧木纹压凹接近同色异质，通过触觉而非装饰色制造高级感；大号 45 保持时间识别优先。",
       "boundary": "长时燃烧对香灰承接、倾倒稳定性与通风提示要求更高，必须与配套香托共同完成安全验证。",
       "linkedTime": "45",
-      "src": "assets/tangui/refill-45.webp",
+      "src": "assets/tangui/refill-45-r3.webp",
       "width": 1132,
       "height": 1390
     },
@@ -68,7 +68,7 @@
       "designLogic": "右上角切角对应日晷投影，日影折线成为真实开合线；木纹板向右抽离后露出细长线香和条形矿物香托。",
       "boundary": "最终量产必须校核盒体闭合公差、抽拉阻尼、香支实际长度、内托防震与香托耐热材质。",
       "linkedTime": "30",
-      "src": "assets/tangui/gift-30.webp",
+      "src": "assets/tangui/gift-30-r3.webp",
       "width": 1028,
       "height": 1530
     },
@@ -86,7 +86,7 @@
       "designLogic": "纵向比例呼应线香本体，象牙白主体减轻体量感，深色木盖与底座像日晷上下刻度，为便携形态提供稳定视觉重心。",
       "boundary": "便携容器需验证密封、防折断、防潮与余香残留；外出使用仍须遵守场地明火规定。",
       "linkedTime": "15",
-      "src": "assets/tangui/travel-15.webp",
+      "src": "assets/tangui/travel-15-r3.webp",
       "width": 825,
       "height": 1906
     },
@@ -103,7 +103,7 @@
       "value": "把木纹从装饰升级为内容来源，让消费者知道品牌为什么使用这些材料、哪些信息已经验证、哪些仍在开发。",
       "designLogic": "书脊使用深色纵向木纹，纸面保持象牙白；日影折线像档案封缄，视觉上与 APP 左侧固定木条形成线上线下一致。",
       "boundary": "来源、产区、年份、配比与检测结论只能在获得供应链文件和检测报告后填写，不以故事替代证据。",
-      "src": "assets/tangui/wood-archive.webp",
+      "src": "assets/tangui/wood-archive-r3.webp",
       "width": 977,
       "height": 1610
     },
@@ -120,7 +120,7 @@
       "value": "将品牌的时间语言从直线延伸到圆周，既丰富产品轮廓，也为客厅和长时阅读建立独立产品理由。",
       "designLogic": "深色木纹盒盖压入一圈日晷刻度，圆形香托延续同一中心轴；盒体和器物不是两个造型，而是同一套时间图形的内外对应。",
       "boundary": "90 MIN 为概念目标值；盘香配方、断裂率、燃烧连续性、底部隔热和承灰范围需要独立打样验证。",
-      "src": "assets/tangui/moon-90.webp",
+      "src": "assets/tangui/moon-90-r3.webp",
       "width": 1537,
       "height": 1023
     },
@@ -137,7 +137,7 @@
       "value": "耗材之外建立耐用品资产，让品牌不只销售香，也提供完整、可维护的使用秩序。",
       "designLogic": "方盒内部以圆形开窗露出器物，形成方与圆、纸与矿物的对照；右侧浅木纹板继续承担开合和触觉识别。",
       "boundary": "材质需验证耐热、阻燃、倾倒稳定、清洁方式和香灰容量；在完成测试前不宣称具体材料性能。",
-      "src": "assets/tangui/dial-objects.webp",
+      "src": "assets/tangui/dial-objects-r3.webp",
       "width": 1478,
       "height": 1064
     },
@@ -152,9 +152,9 @@
       "positioning": "将 15 / 30 / 45 MIN 的包装信息转化成可操作的实体界面，是品牌从香品走向时间方式的关键产品。",
       "function": "通过机械旋钮设定时间，黑色圆盘读取刻度，赭红扇区提示剩余时长；三角木质底座提供稳定摆放。",
       "value": "用户无需打开手机即可开始一段时间，使线下器物、包装刻度与 APP 计时形成完整闭环。",
-      "designLogic": "三角轮廓来自日晷指针与投影夹角，圆形表盘继承 Logo；木质外壳避免计时器看起来像通用电子产品。",
+      "designLogic": "三角轮廓来自日晷指针与投影夹角，圆形表盘保留计时功能，中心采用新版斜影标志；木质外壳避免计时器看起来像通用电子产品。",
       "boundary": "需要验证真实机芯精度、蜂鸣音量、旋钮寿命、木壳散热与阻燃距离；当前不等同于可量产工程图。",
-      "src": "assets/tangui/dial-timer.webp",
+      "src": "assets/tangui/dial-timer-r3.webp",
       "width": 1387,
       "height": 1134
     }
@@ -164,42 +164,42 @@
       "id": "family",
       "name": "一套完整的时间器物",
       "english": "PRODUCT CONSTELLATION",
-      "src": "assets/tangui/product-family-expanded.png",
-      "designLogic": "从短时线香、礼盒与随行筒，到盘香、香器、材料档案和机械计时器，九项产品围绕同一套日晷刻度与木纹开合逻辑展开。"
+      "src": "assets/tangui/product-family-r3.png",
+      "designLogic": "从短时线香、礼盒与随行筒，到盘香、香器、材料档案和机械计时器，九项产品以新版斜影标志统一识别，并围绕时间刻度与木纹开合逻辑展开。"
     },
     {
       "id": "campaign-main",
       "name": "晨光 · 以香记时",
       "english": "MORNING LIGHT / BRAND CAMPAIGN",
-      "src": "assets/tangui/campaign-morning-v2.png",
+      "src": "assets/tangui/campaign-morning-r3.png",
       "designLogic": "晨白香盒置于浅色石面，侧向晨光显出纸纹、木纹与器物的质感。细笔书法与新版斜影标志，在留白中讲述一天开始前的短时停留。"
     },
     {
       "id": "campaign-secondary",
       "name": "静香 · 给时间一段香",
       "english": "QUIET INCENSE / BRAND CAMPAIGN",
-      "src": "assets/tangui/campaign-evening-v2.png",
+      "src": "assets/tangui/campaign-evening-r3.png",
       "designLogic": "晷墨香盒与取出的香托安放在深色木桌上，一支香缓缓燃烧。斜光、细烟与暖白书法共同呈现阅读和静坐时的专注片刻。"
     },
     {
       "id": "open-15",
       "name": "晨白 · 开盒全貌",
       "english": "15 MIN / OPEN BOX",
-      "src": "assets/tangui/open-15.webp",
+      "src": "assets/tangui/open-15-r3.webp",
       "designLogic": "原项目 v5 开盒产品图，完整保留香盒、香支与香托的位置关系。"
     },
     {
       "id": "open-30",
       "name": "晷墨 · 开盒全貌",
       "english": "30 MIN / OPEN BOX",
-      "src": "assets/tangui/open-30.webp",
+      "src": "assets/tangui/open-30-r3.webp",
       "designLogic": "原项目 v5 开盒产品图，完整保留香盒、香支与香托的位置关系。"
     },
     {
       "id": "open-45",
       "name": "檀褐 · 开盒全貌",
       "english": "45 MIN / OPEN BOX",
-      "src": "assets/tangui/open-45.webp",
+      "src": "assets/tangui/open-45-r3.webp",
       "designLogic": "原项目 v5 开盒产品图，完整保留香盒、香支与香托的位置关系。"
     }
   ]

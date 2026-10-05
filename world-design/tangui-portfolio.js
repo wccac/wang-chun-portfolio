@@ -86,7 +86,7 @@
   }
 
   const scriptURL = document.currentScript?.src || document.baseURI;
-  const catalogURL = new URL('assets/tangui/catalog.json', scriptURL);
+  const catalogURL = new URL('assets/tangui/catalog.json?v=logo-r3-20261005', scriptURL);
   let catalogPromise, sequence = 0;
   const catalog = () => catalogPromise || (catalogPromise = fetch(catalogURL)
     .then(response => { if (!response.ok) throw Error('Catalogue unavailable'); return response.json(); })
